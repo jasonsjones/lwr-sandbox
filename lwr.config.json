@@ -1,0 +1,13 @@
+{
+    "lwc": { "modules": [{ "dir": "$rootDir/src/modules" }] },
+    "bundleConfig": { "exclude": ["lwc"] },
+    "port": 4201,
+    "routes": [
+        {
+            "id": "example",
+            "path": "/",
+            "rootComponent": "example/app",
+            "layoutTemplate": "$layoutsDir/main_layout.njk"
+        }
+    ]
+}
