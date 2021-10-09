@@ -4,7 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="$assetsDir/styles/twcompiled.css"/>
-        <title>{{global.siteTitle}}</title>
+        <title>{{ global.siteTitle }}</title>
     </head>
     <body>
         <header class="px-8 py-4 bg-indigo-900 text-gray-200">
@@ -17,9 +17,11 @@
                         </div>
                     </div>
                 </a>
+                {% include "src/layouts/partials/octo-cat-link.njk" %}
             </div>
         </header>
-        <h1 class="text-4xl text-center text-gray-700 mt-4">{{global.siteTitle}} &mdash; {{page.id | title}} Page</h1>
+        <h1 class="text-4xl text-center text-gray-700 mt-4">{{ global.siteTitle }} &mdash;
+            {{ page.id | title }} Page</h1>
     </body>
-    {{body | safe}}{{lwr_resources | safe}}
+    {{ body | safe }}{{ lwr_resources | safe }}
 </html></body></html>
