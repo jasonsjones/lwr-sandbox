@@ -1,13 +1,23 @@
 {
     "lwc": { "modules": [{ "dir": "$rootDir/src/modules" }] },
-    "bundleConfig": { "exclude": ["lwc"] },
+    "bundleConfig": { "exclude": ["lwc", "@lwc/synthetic-shadow"] },
     "port": 4201,
+    "assets": [
+        {
+            "alias": "assetsDir",
+            "dir": "$rootDir/src/assets",
+            "urlPath": "/assets"
+        }
+    ],
     "routes": [
         {
             "id": "example",
             "path": "/",
             "rootComponent": "example/app",
-            "layoutTemplate": "$layoutsDir/main_layout.njk"
+            "layoutTemplate": "$layoutsDir/main_layout.njk",
+            "bootstrap": {
+                "syntheticShadow": true
+            }
         }
     ]
 }

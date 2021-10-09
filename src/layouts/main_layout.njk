@@ -1,15 +1,25 @@
-
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="$assetsDir/styles/normalize.css" />
-    <link rel="stylesheet" href="$assetsDir/styles/site.css" />
-    <title>{{global.siteTitle}}</title>
-</head>
-<body>
-    <h1>{{global.siteTitle}}</h1>
-    {{body | safe}} {{lwr_resources | safe}}
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="$assetsDir/styles/twcompiled.css"/>
+        <title>{{global.siteTitle}}</title>
+    </head>
+    <body>
+        <header class="px-8 py-4 bg-indigo-900 text-gray-200">
+            <div class="flex items-center justify-between">
+                <a href="/">
+                    <div class="flex flex-col items-end cursor-pointer">
+                        <div class="text-3xl font-bold uppercase hover:text-white">Orion</div>
+                        <div class="-mr-2 px-2 text-lg text-white font-semibold bg-indigo-400 rounded-full">
+                            labs
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </header>
+        <h1 class="text-4xl text-center text-gray-700 mt-4">{{global.siteTitle}} &mdash; {{page.id | title}} Page</h1>
+    </body>
+    {{body | safe}}{{lwr_resources | safe}}
+</html></body></html>
