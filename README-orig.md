@@ -1,6 +1,7 @@
 # LWC-TS Boilerplate Example
 
-The **LWC TS Boilerplate** contains the minimum code needed to get simple SinglePageApplication on LWR running.
+The **LWC TS Boilerplate** contains the minimum code needed to get simple SinglePageApplication on
+LWR running.
 
 ## Project Setup
 
@@ -24,7 +25,8 @@ package.json            // npm packaging configuration
 
 ## Configuration
 
-The LWR server is configured in `lwr.config.json`, at the root of the project. The **LWC TS Boilerplate** has one LWC module and one route.
+The LWR server is configured in `lwr.config.json`, at the root of the project. The **LWC TS
+Boilerplate** has one LWC module and one route.
 
 ```json
 // lwr.config.json
@@ -40,7 +42,8 @@ The LWR server is configured in `lwr.config.json`, at the root of the project. T
 }
 ```
 
-Learn more in [Configure a LWR Project](https://github.com/salesforce/lwr-recipes/blob/master/doc/config.md).
+Learn more in
+[Configure a LWR Project](https://github.com/salesforce/lwr-recipes/blob/master/doc/config.md).
 
 ## Setup
 
