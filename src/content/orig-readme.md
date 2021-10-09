@@ -1,3 +1,7 @@
+---
+layoutTemplate: $layoutsDir/main_layout.njk
+---
+
 # LWC-TS Boilerplate Example
 
 The **LWC TS Boilerplate** contains the minimum code needed to get simple SinglePageApplication on

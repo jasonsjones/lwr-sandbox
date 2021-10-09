@@ -18,6 +18,11 @@
             "bootstrap": {
                 "syntheticShadow": true
             }
+        },
+        {
+            "id": "doc",
+            "path": "/doc",
+            "contentTemplate": "$contentDir/orig-readme.md"
         }
     ]
 }
