@@ -13,7 +13,7 @@
         {
             "id": "example",
             "path": "/",
-            "rootComponent": "example/app",
+            "rootComponent": "orion_labs/app",
             "layoutTemplate": "$layoutsDir/main_layout.njk",
             "bootstrap": {
                 "syntheticShadow": true
