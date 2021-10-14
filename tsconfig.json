@@ -31,7 +31,9 @@
     "paths": {
         "lwr/router": [ "../node_modules/@lwrjs/router/build/modules/lwr/router/router.d.ts" ],
         "orion_labs/home": [ "modules/orion_labs/home/home.ts" ],
-        "orion_labs/homePageHandler": [ "modules/orion_labs/homePageHandler/homePageHandler.ts" ]
+        "orion_labs/homePageHandler": [ "modules/orion_labs/homePageHandler/homePageHandler.ts" ],
+        "orion_labs/mainLayout": [ "modules/orion_labs/mainLayout/mainLayout.ts" ],
+        "orion_labs/navbar": [ "modules/orion_labs/navbar/navbar.ts" ],
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
