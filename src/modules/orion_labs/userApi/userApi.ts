@@ -1,9 +1,16 @@
 import { WireAdapter, WireConfigValue, WireDataCallback } from 'lwc';
-import { userService, User } from './userService';
+import { userService } from './userService';
 
-export { User };
+export interface User {
+    id: string;
+    name: string;
+}
 
-const getUsersInstances = new Set();
+const getUsersInstances = new Set<getUsers>();
+
+function refreshGetUsersInstances(): void {
+    getUsersInstances.forEach((instance) => instance._refresh());
+}
 
 export class getUsers implements WireAdapter {
     dataCallback: WireDataCallback;
@@ -69,5 +76,5 @@ export class getUser implements WireAdapter {
 
 export function createUser(name: string): void {
     userService.create(name);
-    // TODO: update all getUsersInstances with new change...
+    refreshGetUsersInstances();
 }

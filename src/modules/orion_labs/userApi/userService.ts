@@ -1,9 +1,5 @@
 import { v4 } from 'uuid';
-
-export interface User {
-    id: string;
-    name: string;
-}
+import { User } from './userApi';
 
 class UserService {
     users = new Map<string, User>();

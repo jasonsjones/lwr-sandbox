@@ -1,0 +1,11 @@
+<template>
+    <h3 class="mb-4 text-center text-2xl text-gray-700">User List</h3>
+    <template for:each={users} for:item="user">
+        <p key={user.id}><span class="text-gray-500">{user.id}</span></span> &mdash; {user.name}</p>
+    </template>
+    <form class="mt-4">
+        <label for="name">Enter Name</label>
+        <input type="text" id="name" class="px-2 border-2 border-gray-300" />
+        <button type="submit" class="border-2 border-indigo-400" onclick={handleSubmit}>Add User</button>
+    </form>
+</template>
