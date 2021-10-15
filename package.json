@@ -14,12 +14,14 @@
     },
     "dependencies": {
         "lwc": "2.5.1",
-        "lwr": "0.5.4"
+        "lwr": "0.5.4",
+        "uuid": "8.3.2"
     },
     "engines": {
         "node": ">=14.15.4 <15"
     },
     "devDependencies": {
+        "@types/uuid": "8.3.1",
         "@typescript-eslint/eslint-plugin": "4.33.0",
         "@typescript-eslint/parser": "4.33.0",
         "autoprefixer": "10.3.7",
