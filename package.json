@@ -8,7 +8,7 @@
         "clean": "rm -rf __lwr_cache__",
         "lint": "eslint '**/*.{js,ts}' --max-warnings 0",
         "format": "prettier --write '**/*.{js,ts,json,md}'",
-        "dev": "node scripts/start-server.mjs",
+        "dev": "ts-node-dev --respawn --transpile-only src/server/index.ts",
         "start": "MODE=prod node scripts/start-server.mjs",
         "start:amd": "MODE=compat node scripts/start-server.mjs"
     },
@@ -30,6 +30,7 @@
         "postcss-cli": "9.0.1",
         "prettier": "2.4.1",
         "tailwindcss": "2.2.16",
+        "ts-node-dev": "1.1.8",
         "typescript": "4.4.3"
     }
 }
