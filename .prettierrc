@@ -3,5 +3,11 @@
     "singleQuote": true,
     "tabWidth": 4,
     "trailingComma": "none",
-    "proseWrap": "always"
+    "proseWrap": "always",
+    "overrides": [
+        {
+            "files": "src/modules/**/*.html",
+            "options": { "parser": "lwc" }
+        }
+    ]
 }
