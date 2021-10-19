@@ -30,6 +30,9 @@
     "baseUrl": "src",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
         "lwr/router": [ "../node_modules/@lwrjs/router/build/modules/lwr/router/router.d.ts" ],
+        "lwr/navigation": [ "../node_modules/@lwrjs/router/build/modules/lwr/navigation/navigation.d.ts" ],
+        "orion_labs/about": [ "modules/orion_labs/about/about.ts" ],
+        "orion_labs/aboutPageHandler": [ "modules/orion_labs/aboutPageHandler/aboutPageHandler.ts" ],
         "orion_labs/home": [ "modules/orion_labs/home/home.ts" ],
         "orion_labs/homePageHandler": [ "modules/orion_labs/homePageHandler/homePageHandler.ts" ],
         "orion_labs/mainLayout": [ "modules/orion_labs/mainLayout/mainLayout.ts" ],

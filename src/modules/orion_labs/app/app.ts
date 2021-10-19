@@ -10,6 +10,14 @@ const routes: RouteDefinition[] = [
         page: {
             type: 'home'
         }
+    },
+    {
+        id: 'about',
+        uri: '/about',
+        handler: (): Promise<RouteHandlerModule> => import('orion_labs/aboutPageHandler'),
+        page: {
+            type: 'about'
+        }
     }
 ];
 

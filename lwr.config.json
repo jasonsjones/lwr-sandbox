@@ -1,6 +1,12 @@
 {
-    "lwc": { "modules": [{ "dir": "$rootDir/src/modules" }] },
-    "bundleConfig": { "exclude": ["lwc", "@lwc/synthetic-shadow"] },
+    "lwc": {
+        "modules": [
+            {
+                "dir": "$rootDir/src/modules"
+            }
+        ]
+    },
+    "bundleConfig": { "exclude": ["lwc", "@lwc/synthetic-shadow", "lwr/navigation"] },
     "port": 4201,
     "assets": [
         {
@@ -11,8 +17,17 @@
     ],
     "routes": [
         {
-            "id": "example",
+            "id": "home",
             "path": "/",
+            "rootComponent": "orion_labs/app",
+            "layoutTemplate": "$layoutsDir/main_layout.njk",
+            "bootstrap": {
+                "syntheticShadow": true
+            }
+        },
+        {
+            "id": "about",
+            "path": "/about",
             "rootComponent": "orion_labs/app",
             "layoutTemplate": "$layoutsDir/main_layout.njk",
             "bootstrap": {
