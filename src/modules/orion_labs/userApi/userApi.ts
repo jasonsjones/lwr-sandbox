@@ -1,4 +1,4 @@
-import { WireAdapter, WireConfigValue, WireDataCallback } from 'lwc';
+import { WireAdapter, WireDataCallback } from 'lwc';
 import { userService } from './userService';
 
 export interface User {
@@ -28,16 +28,17 @@ export class getUsers implements WireAdapter {
         getUsersInstances.delete(this);
     }
 
-    update(): void {
-        this._refresh();
+    async update(): Promise<void> {
+        await this._refresh();
     }
 
-    _refresh(): void {
-        const allUsers = userService.getAll();
+    async _refresh(): Promise<void> {
+        const allUsers = await userService.getAll();
         this.dataCallback(allUsers);
     }
 }
 
+/*
 export class getUser implements WireAdapter {
     dataCallback: WireDataCallback;
     connected = false;
@@ -64,17 +65,22 @@ export class getUser implements WireAdapter {
 
     getUserById(id: string): void {
         if (this.connected && this.userId !== undefined) {
-            const user = userService.getById(id);
-            if (user) {
-                this.dataCallback(user);
+            const stubUser = {
+                id,
+                name: 'Stub User'
+            };
+
+            if (stubUser) {
+                this.dataCallback(stubUser);
             } else {
                 this.dataCallback(null);
             }
         }
     }
 }
+*/
 
-export function createUser(name: string): void {
-    userService.create(name);
+export async function createUser(name: string): Promise<void> {
+    await userService.create(name);
     refreshGetUsersInstances();
 }

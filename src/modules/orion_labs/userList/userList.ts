@@ -12,15 +12,15 @@ export default class UserList extends LightningElement {
     }
 
     get users(): User[] {
-        return this._users;
+        return this._users || [];
     }
 
-    handleSubmit(event: Event): void {
+    async handleSubmit(event: Event): Promise<void> {
         event.preventDefault();
         const input = this.template.querySelector('input');
         if (input) {
             const newName = input.value;
-            createUser(newName as string);
+            await createUser(newName as string);
             input.value = '';
         }
     }

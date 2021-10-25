@@ -1,27 +1,25 @@
-import { v4 } from 'uuid';
 import { User } from './userApi';
 
 class UserService {
-    users = new Map<string, User>();
-
-    getAll(): User[] {
-        return Array.from(this.users.values());
+    async create(name: string): Promise<void> {
+        await fetch('/api/v1/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name })
+        });
     }
 
-    getById(id: string): User | undefined {
-        return this.users.get(id);
-    }
+    async getAll(): Promise<User[]> {
+        const response = await fetch('/api/v1/users');
+        const data = await response.json();
+        if (data.success) {
+            return data.payload?.users;
+        }
 
-    create(name: string): void {
-        const newUser: User = {
-            id: v4(),
-            name: name
-        };
-        this.users.set(newUser.id, newUser);
+        return Promise.resolve([]);
     }
 }
 
 export const userService = new UserService();
-
-userService.create('Oliver Queen');
-userService.create('Barry Allen');
