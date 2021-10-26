@@ -7,7 +7,7 @@
         ]
     },
     "bundleConfig": { "exclude": ["lwc", "@lwc/synthetic-shadow", "lwr/navigation"] },
-    "port": 4201,
+    "port": 4200,
     "assets": [
         {
             "alias": "assetsDir",
