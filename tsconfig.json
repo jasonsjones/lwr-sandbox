@@ -40,7 +40,8 @@
         "orion_labs/navbar": [ "modules/orion_labs/navbar/navbar.ts" ],
         "orion_labs/navLink": [ "modules/orion_labs/navLink/navLink.ts" ],
         "orion_labs/userApi": [ "modules/orion_labs/userApi/userApi.ts" ],
-        "orion_labs/userList": [ "modules/orion_labs/userList/userList.ts" ]
+        "orion_labs/userList": [ "modules/orion_labs/userList/userList.ts" ],
+        "orion_labs/userListPageHandler": [ "modules/orion_labs/userListPageHandler/userListPageHandler.ts" ]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */

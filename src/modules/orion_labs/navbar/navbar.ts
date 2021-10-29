@@ -22,6 +22,12 @@ export default class NavBar extends LightningElement {
         };
     }
 
+    get userListPage(): PageReference {
+        return {
+            type: 'users'
+        };
+    }
+
     connectedCallback(): void {
         if (this.navContext) {
             this.homeUrl = generateUrl(this.navContext, { type: 'home' }) || undefined;
