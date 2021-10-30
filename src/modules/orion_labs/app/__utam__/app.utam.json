@@ -1,0 +1,15 @@
+{
+    "root": true,
+    "selector": {
+        "css": ".app"
+    },
+    "elements": [
+        {
+            "name": "app",
+            "selector": {
+                "css": "orion_labs-app"
+            },
+            "public": true
+        }
+    ]
+}
