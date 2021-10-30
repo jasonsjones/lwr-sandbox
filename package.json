@@ -12,7 +12,8 @@
         "dev": "ts-node-dev --respawn --transpile-only src/server/index.ts",
         "start": "MODE=prod node scripts/start-server.mjs",
         "start:amd": "MODE=compat node scripts/start-server.mjs",
-        "test:e2e": "wdio"
+        "test:e2e": "wdio",
+        "test:unit": "jest"
     },
     "dependencies": {
         "lwc": "2.5.1",
@@ -23,6 +24,8 @@
         "node": ">=14.15.4 <15"
     },
     "devDependencies": {
+        "@lwc/jest-preset": "11.2.1",
+        "@types/jest": "27.0.2",
         "@types/mocha": "9.0.0",
         "@types/uuid": "8.3.1",
         "@typescript-eslint/eslint-plugin": "4.33.0",
@@ -36,6 +39,7 @@
         "eslint": "7.32.0",
         "eslint-config-prettier": "8.3.0",
         "eslint-plugin-prettier": "4.0.0",
+        "jest": "27.3.1",
         "postcss": "8.3.9",
         "postcss-cli": "9.0.1",
         "prettier": "2.4.1",
@@ -45,5 +49,11 @@
         "typescript": "4.4.3",
         "wdio-chromedriver-service": "^7.2.2",
         "wdio-utam-service": "0.0.9"
+    },
+    "jest": {
+        "preset": "@lwc/jest-preset",
+        "moduleNameMapper": {
+            "^orion_labs/(.+)$": "<rootDir>/src/modules/orion_labs/$1/$1"
+        }
     }
 }

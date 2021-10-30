@@ -33,6 +33,7 @@
         "lwr/navigation": [ "../node_modules/@lwrjs/router/build/modules/lwr/navigation/navigation.d.ts" ],
         "orion_labs/about": [ "modules/orion_labs/about/about.ts" ],
         "orion_labs/aboutPageHandler": [ "modules/orion_labs/aboutPageHandler/aboutPageHandler.ts" ],
+        "orion_labs/app": [ "modules/orion_labs/app/app.ts" ],
         "orion_labs/heroBanner": [ "modules/orion_labs/heroBanner/heroBanner.ts" ],
         "orion_labs/home": [ "modules/orion_labs/home/home.ts" ],
         "orion_labs/homePageHandler": [ "modules/orion_labs/homePageHandler/homePageHandler.ts" ],
@@ -45,7 +46,7 @@
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
-    "types": ["node", "webdriverio/async", "@wdio/mocha-framework", "wdio-utam-service"],                                      /* Specify type package names to be included without being referenced in a source file. */
+    "types": ["jest", "node", "webdriverio/async", "@wdio/mocha-framework", "wdio-utam-service"],                                      /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
     // "resolveJsonModule": true,                        /* Enable importing .json files */
     // "noResolve": true,                                /* Disallow `import`s, `require`s or `<reference>`s from expanding the number of files TypeScript should add to a project. */

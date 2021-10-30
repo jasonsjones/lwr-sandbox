@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About component matches snapshot 1`] = `
+<orion_labs-about>
+  #shadow-root(open)
+    <div
+      class="w-2/3 mx-auto"
+    >
+      <h1
+        class="text-4xl text-center text-gray-700 my-4"
+      >
+        LWR Sandbox — About Component
+      </h1>
+      <p
+        class="mb-2"
+      >
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. In magnam sit laboriosam debitis, distinctio maxime obcaecati amet placeat repellendus ut excepturi exercitationem, non id soluta, facere earum? Tenetur, maxime assumenda.
+      </p>
+      <p
+        class="mb-2"
+      >
+        Fusce commodo aliquam arcu. Quisque rutrum. Nulla porta dolor. Etiam rhoncus. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi.
+      </p>
+      <p
+        class="mb-2"
+      >
+        Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Nulla consequat massa quis enim. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Praesent nonummy mi in odio. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Donec vitae orci sed dolor rutrum auctor. Curabitur nisi. Curabitur a felis in nunc fringilla tristique.
+      </p>
+    </div>
+</orion_labs-about>
+`;
