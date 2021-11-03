@@ -9,7 +9,7 @@ describe('About component', () => {
     });
 
     it('matches snapshot', () => {
-        const element = createElement('orion_labs-about', {
+        const element: HTMLElement = createElement('orion_labs-about', {
             is: About
         });
         document.body.appendChild(element);
