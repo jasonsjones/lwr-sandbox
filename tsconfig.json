@@ -25,24 +25,24 @@
 
     /* Modules */
     "module": "commonjs",                                /* Specify what module code is generated. */
-    "rootDir": "src",                                  /* Specify the root folder within your source files. */
-    // "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
-    "baseUrl": "src",                                  /* Specify the base directory to resolve non-relative module names. */
+    "rootDir": ".",                                  /* Specify the root folder within your source files. */
+    "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
+    "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
-        "lwr/router": [ "../node_modules/@lwrjs/router/build/modules/lwr/router/router.d.ts" ],
-        "lwr/navigation": [ "../node_modules/@lwrjs/router/build/modules/lwr/navigation/navigation.d.ts" ],
-        "orion_labs/about": [ "modules/orion_labs/about/about.ts" ],
-        "orion_labs/aboutPageHandler": [ "modules/orion_labs/aboutPageHandler/aboutPageHandler.ts" ],
-        "orion_labs/app": [ "modules/orion_labs/app/app.ts" ],
-        "orion_labs/heroBanner": [ "modules/orion_labs/heroBanner/heroBanner.ts" ],
-        "orion_labs/home": [ "modules/orion_labs/home/home.ts" ],
-        "orion_labs/homePageHandler": [ "modules/orion_labs/homePageHandler/homePageHandler.ts" ],
-        "orion_labs/mainLayout": [ "modules/orion_labs/mainLayout/mainLayout.ts" ],
-        "orion_labs/navbar": [ "modules/orion_labs/navbar/navbar.ts" ],
-        "orion_labs/navLink": [ "modules/orion_labs/navLink/navLink.ts" ],
-        "orion_labs/userApi": [ "modules/orion_labs/userApi/userApi.ts" ],
-        "orion_labs/userList": [ "modules/orion_labs/userList/userList.ts" ],
-        "orion_labs/userListPageHandler": [ "modules/orion_labs/userListPageHandler/userListPageHandler.ts" ]
+        "lwr/router": [ "node_modules/@lwrjs/router/build/modules/lwr/router/router.d.ts" ],
+        "lwr/navigation": [ "node_modules/@lwrjs/router/build/modules/lwr/navigation/navigation.d.ts" ],
+        "orion_labs/about": [ "src/modules/orion_labs/about/about.ts" ],
+        "orion_labs/aboutPageHandler": [ "src/modules/orion_labs/aboutPageHandler/aboutPageHandler.ts" ],
+        "orion_labs/app": [ "src/modules/orion_labs/app/app.ts" ],
+        "orion_labs/heroBanner": [ "src/modules/orion_labs/heroBanner/heroBanner.ts" ],
+        "orion_labs/home": [ "src/modules/orion_labs/home/home.ts" ],
+        "orion_labs/homePageHandler": [ "src/modules/orion_labs/homePageHandler/homePageHandler.ts" ],
+        "orion_labs/mainLayout": [ "src/modules/orion_labs/mainLayout/mainLayout.ts" ],
+        "orion_labs/navbar": [ "src/modules/orion_labs/navbar/navbar.ts" ],
+        "orion_labs/navLink": [ "src/modules/orion_labs/navLink/navLink.ts" ],
+        "orion_labs/userApi": [ "src/modules/orion_labs/userApi/userApi.ts" ],
+        "orion_labs/userList": [ "src/modules/orion_labs/userList/userList.ts" ],
+        "orion_labs/userListPageHandler": [ "src/modules/orion_labs/userListPageHandler/userListPageHandler.ts" ]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */

@@ -1,3 +1,6 @@
 declare module 'lwc' {
-    export function createElement(name: string, opts: any): any;
+    export function createElement(
+        name: string,
+        opts: { is: typeof LightningElement; mode?: 'open' | 'closed' }
+    ): HTMLElement;
 }
