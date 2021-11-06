@@ -6,16 +6,19 @@
     "scripts": {
         "build:css": "postcss src/styles/styles.css -o src/assets/styles/twcompiled.css",
         "build:utam": "utam -c utam.config.js",
-        "clean": "rm -rf __lwr_cache__",
+        "clean": "rm -rf __lwr_cache__ src/modules/orion_labs/userApi/generated",
         "lint": "eslint '**/*.{js,ts}' --max-warnings 0",
         "format": "prettier --write '**/*.{js,ts,json,md}'",
         "dev": "ts-node-dev --respawn --transpile-only src/server/index.ts",
+        "generate:adapters": "luvio generate src/raml/luvio.raml src/modules/orion_labs/userApi/generated",
         "start": "MODE=prod node scripts/start-server.mjs",
         "start:amd": "MODE=compat node scripts/start-server.mjs",
         "test:e2e": "wdio",
         "test:unit": "jest"
     },
     "dependencies": {
+        "@luvio/engine": "0.59.0",
+        "@luvio/lwc-luvio": "0.59.0",
         "lwc": "2.5.1",
         "lwr": "0.5.4",
         "uuid": "8.3.2"
@@ -24,6 +27,8 @@
         "node": ">=14.15.4 <15"
     },
     "devDependencies": {
+        "@luvio/cli": "0.59.0",
+        "@luvio/compiler": "0.59.0",
         "@lwc/jest-preset": "11.2.1",
         "@types/jest": "27.0.2",
         "@types/mocha": "9.0.0",

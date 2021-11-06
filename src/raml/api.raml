@@ -1,0 +1,23 @@
+#%RAML 1.0
+title: Sandbox API
+baseUri: /api/v1
+
+types:
+    User:
+        type: object
+        properties:
+            id: string
+            name: string
+    UserList:
+        type: object
+        properties:
+            users: User[]
+
+/users:
+    get:
+        description: Get the list of users
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: UserList

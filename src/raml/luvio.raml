@@ -1,0 +1,19 @@
+#%RAML 1.0 Overlay
+extends: ./api.raml
+
+uses:
+    luvio: luvio://annotations.raml
+
+(luvio.keyPrefix): 'userApi'
+(luvio.ttl): 30000
+
+types:
+    User:
+        (luvio.key):
+            id: id
+        (luvio.ttl): 30000
+
+/users:
+    get:
+        (luvio.adapter):
+            name: getUsers
