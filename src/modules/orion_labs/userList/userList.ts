@@ -5,9 +5,14 @@ export default class UserList extends LightningElement {
     @track _users: User[];
 
     @wire(getUsers)
-    getAllUsers(data: User[]): void {
-        if (data && Array.isArray(data)) {
-            this._users = data;
+    getAllUsers({ data, error }: { data: { users: User[] }; error: Error }): void {
+        if (error) {
+            console.log(error.message);
+            return;
+        }
+
+        if (data && Array.isArray(data.users)) {
+            this._users = data.users;
         }
     }
 

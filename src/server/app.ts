@@ -32,13 +32,7 @@ export default function (app: Express.Application): void {
     });
 
     app.get('/api/v1/users', (req: Request, res: Response) => {
-        res.json({
-            success: true,
-            message: 'LWR users resource',
-            payload: {
-                users
-            }
-        });
+        res.json({ users });
     });
 
     app.post('/api/v1/users', (req: Request, res: Response) => {
