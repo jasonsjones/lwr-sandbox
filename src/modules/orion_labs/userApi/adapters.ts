@@ -1,15 +1,20 @@
 import { Adapter, Environment, FetchResponse, Luvio, ResourceRequest, Store } from '@luvio/engine';
 import { createWireAdapterConstructor } from '@luvio/lwc-luvio';
 import { getUsersAdapterFactory } from './generated/adapters/getUsers';
+import { createUserAdapterFactory } from './generated/adapters/createUser';
 
 const store = new Store();
 
 async function networkAdapter(resourceRequest: ResourceRequest): Promise<FetchResponse<any>> {
-    const { baseUri, basePath, method } = resourceRequest;
+    const { baseUri, basePath, body, method } = resourceRequest;
     const path = `${baseUri}${basePath}`;
 
     const response = await fetch(path, {
-        method: method.toUpperCase()
+        method: method.toUpperCase(),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: body === null ? null : JSON.stringify(body)
     });
 
     const resBody = await response.json();
@@ -18,7 +23,7 @@ async function networkAdapter(resourceRequest: ResourceRequest): Promise<FetchRe
         body: resBody,
         status: response.status,
         statusText: 'ok',
-        ok: response.status === 200,
+        ok: response.status === 200 || response.status === 201,
         headers: {}
     };
 }
@@ -32,10 +37,6 @@ const GetUsersWireAdapter = createWireAdapterConstructor(
     luvio
 );
 
-async function createUser(name: string): Promise<void> {
-    console.log(
-        await Promise.resolve(`Create user implementation not yet implemented for user ${name}`)
-    );
-}
+const createUser = createUserAdapterFactory(luvio);
 
 export { GetUsersWireAdapter as getUsers, createUser };

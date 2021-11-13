@@ -25,8 +25,12 @@ export default class UserList extends LightningElement {
         const input = this.template.querySelector('input');
         if (input) {
             const newName = input.value;
-            await createUser(newName as string);
-            input.value = '';
+            const response = await createUser({ name: newName });
+            if (response) {
+                const newUser = response.data as User;
+                this._users = [...this._users, newUser];
+                input.value = '';
+            }
         }
     }
 }

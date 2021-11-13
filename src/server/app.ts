@@ -41,10 +41,7 @@ export default function (app: Express.Application): void {
             name: req.body.name
         };
         users.push(newUser);
-        res.status(201).json({
-            success: true,
-            message: 'LWR user created'
-        });
+        res.status(201).json(newUser);
     });
 
     app.get('/api/v1/users/:id', (req: Request, res: Response) => {

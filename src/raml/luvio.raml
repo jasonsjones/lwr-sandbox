@@ -4,16 +4,20 @@ extends: ./api.raml
 uses:
     luvio: luvio://annotations.raml
 
-(luvio.keyPrefix): 'userApi'
+(luvio.keyPrefix): 'sandboxapi'
 (luvio.ttl): 30000
 
 types:
     User:
         (luvio.key):
-            id: id
-        (luvio.ttl): 30000
+            userid: id
+        (luvio.opaque): true
+        (luvio.ttl): 20000
 
 /users:
     get:
         (luvio.adapter):
             name: getUsers
+    post:
+        (luvio.adapter):
+            name: createUser
