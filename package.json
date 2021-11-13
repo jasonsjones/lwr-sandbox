@@ -19,8 +19,11 @@
     "dependencies": {
         "@luvio/engine": "0.60.0",
         "@luvio/lwc-luvio": "0.60.0",
+        "dotenv": "10.0.0",
         "lwc": "2.5.10",
         "lwr": "0.5.11",
+        "passport": "0.5.0",
+        "passport-forcedotcom": "0.1.5",
         "uuid": "8.3.2"
     },
     "engines": {
@@ -30,8 +33,10 @@
         "@luvio/cli": "0.60.0",
         "@luvio/compiler": "0.60.0",
         "@lwc/jest-preset": "11.2.1",
+        "@types/dotenv": "8.2.0",
         "@types/jest": "27.0.2",
         "@types/mocha": "9.0.0",
+        "@types/passport": "1.0.7",
         "@types/uuid": "8.3.1",
         "@typescript-eslint/eslint-plugin": "5.3.1",
         "@typescript-eslint/parser": "5.3.1",

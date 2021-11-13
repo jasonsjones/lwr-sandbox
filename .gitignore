@@ -1,5 +1,6 @@
 node_modules
 __lwr_cache__
+.env
 pageObjects
 build
 twcompiled.css
