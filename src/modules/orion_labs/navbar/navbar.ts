@@ -6,6 +6,7 @@ export default class NavBar extends LightningElement {
     @wire(NavigationContext)
     navContext?: ContextId;
     homeUrl?: string;
+    _isAuthenticated = false;
 
     handleClick(event: Event): void {
         event.preventDefault();
@@ -14,6 +15,10 @@ export default class NavBar extends LightningElement {
                 type: 'home'
             });
         }
+    }
+
+    get isAuthenticated() {
+        return this._isAuthenticated;
     }
 
     get aboutPage(): PageReference {
@@ -28,9 +33,19 @@ export default class NavBar extends LightningElement {
         };
     }
 
+    handleSFDCAuth() {
+        window.localStorage.setItem('isAuthenticated', 'true');
+    }
+
+    handleLogout() {
+        window.localStorage.removeItem('isAuthenticated');
+        this._isAuthenticated = false;
+    }
+
     connectedCallback(): void {
         if (this.navContext) {
             this.homeUrl = generateUrl(this.navContext, { type: 'home' }) || undefined;
         }
+        this._isAuthenticated = !!window.localStorage.getItem('isAuthenticated');
     }
 }
