@@ -4,6 +4,7 @@ import passport from 'passport';
 import passportForceDotCom from 'passport-forcedotcom';
 import { v4 } from 'uuid';
 
+// NOTICE: Please ignore this tangled mess of code ;-)
 interface User {
     id: string;
     name: string;
@@ -25,6 +26,10 @@ const users: User[] = [
     }
 ];
 
+// Hack to simulate "session" user, but this means this server only supports
+// a single auth'd user (for now...)
+let autheticatedUser: User | undefined;
+
 function getUserBySfdcId(id: string): User | undefined {
     const user = users.find((user) => user.sfdcUserId === id);
     return user;
@@ -32,10 +37,12 @@ function getUserBySfdcId(id: string): User | undefined {
 
 export default function (app: Express.Application): void {
     dotenv.config();
-
     const ForceDotComStrategy = passportForceDotCom.Strategy;
+
+    // custom middleware
     app.use(async (req: Request, res: Response, next: NextFunction) => {
         // console.log(`[Server] ${req.method} ${req.url}`);
+        req.user = autheticatedUser;
         next();
     });
     app.use(Express.json({}));
@@ -43,12 +50,13 @@ export default function (app: Express.Application): void {
     app.use(passport.initialize());
 
     passport.serializeUser((user, done) => {
+        console.log(`[Server] Serializing user: ${JSON.stringify(user)}`);
         done(null, user);
     });
 
-    passport.deserializeUser((obj: any, done) => {
-        console.log(obj);
-        done(null, obj);
+    passport.deserializeUser((user: User, done) => {
+        console.log(`[Server] Deserializing user: ${JSON.stringify(user)}`);
+        done(null, user);
     });
 
     passport.use(
@@ -63,6 +71,7 @@ export default function (app: Express.Application): void {
                 const id = profile._raw.user_id;
                 const user = getUserBySfdcId(id);
                 if (user) {
+                    autheticatedUser = user;
                     return done(null, user);
                 }
                 const newUser: User = {
@@ -71,10 +80,18 @@ export default function (app: Express.Application): void {
                     sfdcUserId: id
                 };
                 users.push(newUser);
+                autheticatedUser = newUser;
                 return done(null, newUser);
             }
         )
     );
+
+    app.get('/api/v1', (req: Request, res: Response) => {
+        res.json({
+            success: true,
+            message: 'LWR custom API response'
+        });
+    });
 
     app.get('/api/v1/auth/sfdc', passport.authenticate('forcedotcom'), () => {
         // the request will be directed to salesforce for authentication, so this
@@ -90,10 +107,20 @@ export default function (app: Express.Application): void {
         }
     );
 
-    app.get('/api/v1', (req: Request, res: Response) => {
+    app.get('/api/v1/auth/user', (req: Request, res: Response) => {
+        const authUser = req.user;
         res.json({
-            success: true,
-            message: 'LWR custom API response'
+            isAuthenticated: !!authUser,
+            user: authUser || null
+        });
+    });
+
+    // maybe this should be a post since it is somewhat 'destructive' in the
+    // sense it does change the state...
+    app.get('/api/v1/auth/logout', (req: Request, res: Response) => {
+        autheticatedUser = undefined;
+        res.json({
+            success: true
         });
     });
 
