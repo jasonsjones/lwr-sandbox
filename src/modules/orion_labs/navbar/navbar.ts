@@ -33,19 +33,21 @@ export default class NavBar extends LightningElement {
         };
     }
 
-    handleSFDCAuth() {
-        window.localStorage.setItem('isAuthenticated', 'true');
-    }
-
-    handleLogout() {
-        window.localStorage.removeItem('isAuthenticated');
+    async handleLogout() {
+        const response = await fetch('/api/v1/auth/logout');
+        await response.json();
         this._isAuthenticated = false;
     }
 
-    connectedCallback(): void {
+    async connectedCallback(): Promise<void> {
         if (this.navContext) {
             this.homeUrl = generateUrl(this.navContext, { type: 'home' }) || undefined;
         }
-        this._isAuthenticated = !!window.localStorage.getItem('isAuthenticated');
+
+        const response = await fetch('/api/v1/auth/user');
+        const data = await response.json();
+        if (data.isAuthenticated) {
+            this._isAuthenticated = true;
+        }
     }
 }
