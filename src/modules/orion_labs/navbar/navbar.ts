@@ -1,6 +1,7 @@
 import { LightningElement, wire } from 'lwc';
 import { NavigationContext, generateUrl, navigate } from 'lwr/navigation';
 import type { ContextId, PageReference } from 'lwr/navigation';
+import { fetchAuthUser, logout } from 'orion_labs/authService';
 
 export default class NavBar extends LightningElement {
     @wire(NavigationContext)
@@ -34,8 +35,7 @@ export default class NavBar extends LightningElement {
     }
 
     async handleLogout() {
-        const response = await fetch('/api/v1/auth/logout');
-        await response.json();
+        await logout();
         this._isAuthenticated = false;
     }
 
@@ -44,8 +44,7 @@ export default class NavBar extends LightningElement {
             this.homeUrl = generateUrl(this.navContext, { type: 'home' }) || undefined;
         }
 
-        const response = await fetch('/api/v1/auth/user');
-        const data = await response.json();
+        const data = await fetchAuthUser();
         if (data.isAuthenticated) {
             this._isAuthenticated = true;
         }
