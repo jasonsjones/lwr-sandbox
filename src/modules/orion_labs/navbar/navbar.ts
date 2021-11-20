@@ -8,6 +8,7 @@ export default class NavBar extends LightningElement {
     navContext?: ContextId;
     homeUrl?: string;
     _isAuthenticated = false;
+    isMobileMenuOpen = false;
 
     handleClick(event: Event): void {
         event.preventDefault();
@@ -32,6 +33,10 @@ export default class NavBar extends LightningElement {
         return {
             type: 'users'
         };
+    }
+
+    toggleMobileMenu(): void {
+        this.isMobileMenuOpen = !this.isMobileMenuOpen;
     }
 
     async handleLogout() {

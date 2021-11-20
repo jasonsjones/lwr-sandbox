@@ -1,6 +1,6 @@
 <template>
     <header class="px-8 py-4 bg-indigo-900 text-gray-200">
-        <div class="flex items-center gap-x-28">
+        <div class="flex">
             <a href={homeUrl} onclick={handleClick}>
                 <div class="flex flex-col items-end cursor-pointer">
                     <div class="text-3xl font-bold uppercase hover:text-white">Orion</div>
@@ -19,16 +19,65 @@
                 </div>
             </a>
 
-            <orion_labs-nav-link navigate-to={aboutPage}>About</orion_labs-nav-link>
-            <orion_labs-nav-link navigate-to={userListPage}>Users</orion_labs-nav-link>
+            <div class="hidden md:flex flex-1 items-center gap-x-16 px-24">
+                <orion_labs-nav-link navigate-to={aboutPage}>About</orion_labs-nav-link>
+                <orion_labs-nav-link navigate-to={userListPage}>Users</orion_labs-nav-link>
 
-            <div class="flex flex-1 justify-end">
-                <a if:false={isAuthenticated} href="/api/v1/auth/sfdc" class="p-2 border-2 border-indigo-500 rounded-md hover:bg-indigo-800">
-                    <img src="/assets/images/salesforce-logo.svg" alt="salesforce logo" width="48" class="inline mr-2" />
-                    Sign in with Salesforce
-                </a>
-                <button if:true={isAuthenticated} class="p-2 border-2 border-indigo-500 rounded-md hover:bg-indigo-800" onclick={handleLogout}>Logout</button>
+                <div class="flex flex-1 justify-end">
+                    <!-- Sign in w/ salesforce button -->
+                    <a
+                        if:false={isAuthenticated}
+                        href="/api/v1/auth/sfdc"
+                        class="
+                            flex
+                            items-center
+                            p-2
+                            border-2 border-indigo-500
+                            rounded-md
+                            hover:bg-indigo-800
+                        "
+                    >
+                        <img
+                            src="/assets/images/salesforce-logo.svg"
+                            alt="salesforce logo"
+                            width="48"
+                            class="inline mr-2"
+                        />
+                        <span class="text-center"> Sign in with Salesforce </span>
+                    </a>
+
+                    <!-- Logout button -->
+                    <button
+                        if:true={isAuthenticated}
+                        class="p-2 border-2 border-indigo-500 rounded-md hover:bg-indigo-800"
+                        onclick={handleLogout}
+                    >
+                        Logout
+                    </button>
+                </div>
             </div>
+
+            <!-- The svg button (menu or 'x') displayed on small screens -->
+            <button
+                class="flex flex-1 justify-end items-center pr-12 md:hidden"
+                type="button"
+                onclick={toggleMobileMenu}
+            >
+                <svg viewBox="0 0 20 20" fill="currentColor" class="w-8 h-8 fill-current">
+                    <path
+                        if:false={isMobileMenuOpen}
+                        fill-rule="evenodd"
+                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                        clip-rule="evenodd"
+                    ></path>
+                    <path
+                        if:true={isMobileMenuOpen}
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                    ></path>
+                </svg>
+            </button>
 
             <!-- octo-cat-link here -->
             <a
@@ -62,6 +111,42 @@
                     ></path>
                 </svg>
             </a>
+        </div>
+
+        <!-- Mobile drop down menu -->
+        <div if:true={isMobileMenuOpen} class="md:hidden flex flex-col items-end mt-8 mb-4 gap-y-4">
+            <orion_labs-nav-link navigate-to={aboutPage}>About</orion_labs-nav-link>
+            <orion_labs-nav-link navigate-to={userListPage}>Users</orion_labs-nav-link>
+            <!-- Sign in w/ salesforce button -->
+            <a
+                if:false={isAuthenticated}
+                href="/api/v1/auth/sfdc"
+                class="
+                    flex
+                    items-center
+                    p-2
+                    border-2 border-indigo-500
+                    rounded-md
+                    hover:bg-indigo-800
+                "
+            >
+                <img
+                    src="/assets/images/salesforce-logo.svg"
+                    alt="salesforce logo"
+                    width="48"
+                    class="inline mr-2"
+                />
+                <span class="text-center"> Sign in with Salesforce </span>
+            </a>
+
+            <!-- Logout button -->
+            <button
+                if:true={isAuthenticated}
+                class="p-2 border-2 border-indigo-500 rounded-md hover:bg-indigo-800"
+                onclick={handleLogout}
+            >
+                Logout
+            </button>
         </div>
     </header>
 </template>
