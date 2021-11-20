@@ -1,10 +1,13 @@
 <template>
     <div class="w-2/3 mx-auto">
-        <h1 class="text-4xl text-center text-gray-700 my-4">LWR Sandbox &mdash; User List Component</h1>
+        <h1 class="text-4xl text-center text-gray-700 mt-4 mb-8">LWR Sandbox &mdash; User List Component</h1>
         <template for:each={users} for:item="user">
-            <p key={user.id}><span class="text-gray-500">{user.id}</span></span> &mdash; {user.name}</p>
+            <div key={user.id} class="text-xl flex gap-8 mb-2">
+                <span class="text-gray-500 flex-1">{user.id}</span>
+                <span class="flex-1">{user.name}</span>
+            </div>
         </template>
-        <form class="mt-4">
+        <form class="mt-8">
             <label for="name">Enter Name</label>
             <input type="text" id="name" class="px-2 border-2 border-gray-300" />
             <button type="submit" class="border-2 border-indigo-400" onclick={handleSubmit}>Add User</button>
