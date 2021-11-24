@@ -1,6 +1,12 @@
 import { createElement } from 'lwc';
 import App from 'orion_labs/app';
 
+global.fetch = jest.fn(() =>
+    Promise.resolve({
+        json: () => jest.fn()
+    })
+) as jest.Mock;
+
 describe('App component', () => {
     let element: HTMLElement;
 
