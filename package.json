@@ -65,6 +65,13 @@
         "moduleNameMapper": {
             "^orion_labs/(.+)$": "<rootDir>/src/modules/orion_labs/$1/$1",
             "^lwr/(.+)$": "<rootDir>/jest_modules/lwr/$1/$1"
-        }
+        },
+        "coverageDirectory": "./coverage/jest/",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/",
+            ".html",
+            "/__tests__/",
+            "/jest_modules/"
+        ]
     }
 }

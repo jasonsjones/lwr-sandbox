@@ -23,9 +23,13 @@ describe('App component', () => {
         }
     });
 
-    it('renders a router container', () => {
+    it('includes a router container', () => {
         const rc = element.shadowRoot?.querySelector('lwr-router-container');
-
         expect(rc).toBeTruthy();
+    });
+
+    it('includes a router outlet', () => {
+        const outlet = element.shadowRoot?.querySelector('lwr-outlet');
+        expect(outlet).toBeTruthy();
     });
 });
