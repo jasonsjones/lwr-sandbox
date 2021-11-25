@@ -1,16 +1,15 @@
 <template>
     <div class="w-2/3 mx-auto">
         <h1 class="text-4xl text-center text-gray-700 mt-4 mb-8">LWR Sandbox &mdash; User List Component</h1>
+        <h3 class="mb-4  text-gray-600 text-2xl">Add User</h3>
+        <div class="mb-12">
+            <orion_labs-user-add-form onadduser={handleAddUser} class=""></orion_labs-user-add-form>
+        </div>
         <template for:each={users} for:item="user">
-            <div key={user.id} class="text-xl flex gap-8 mb-2">
+            <div key={user.id} class="text-xl flex flex-col sm:gap-8 sm:mb-2 sm:flex-row">
                 <span class="text-gray-500 flex-1">{user.id}</span>
-                <span class="flex-1">{user.name}</span>
+                <span class="flex-1 mb-4 sm:mb-0">{user.name}</span>
             </div>
         </template>
-        <form class="mt-8">
-            <label for="name">Enter Name</label>
-            <input type="text" id="name" class="px-2 border-2 border-gray-300" />
-            <button type="submit" class="border-2 border-indigo-400" onclick={handleSubmit}>Add User</button>
-        </form>
     </div>
 </template>
