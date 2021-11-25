@@ -1,7 +1,9 @@
 <template>
-    <orion_labs-navbar></orion_labs-navbar>
-    <main>
-        <slot></slot>
-    </main>
-    <!-- <p>footer goes here</p> -->
+    <div class="flex flex-col h-screen">
+        <orion_labs-navbar></orion_labs-navbar>
+        <main class="flex-grow flex-shrink-0 pb-6">
+            <slot></slot>
+        </main>
+        <orion_labs-footer></orion_labs-footer>
+    </div>
 </template>

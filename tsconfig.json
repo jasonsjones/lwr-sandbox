@@ -35,6 +35,7 @@
         "orion_labs/aboutPageHandler": [ "src/modules/orion_labs/aboutPageHandler/aboutPageHandler.ts" ],
         "orion_labs/app": [ "src/modules/orion_labs/app/app.ts" ],
         "orion_labs/authService": [ "src/modules/orion_labs/authService/authService" ],
+        "orion_labs/footer": [ "src/modules/orion_labs/footer/footer.ts" ],
         "orion_labs/heroBanner": [ "src/modules/orion_labs/heroBanner/heroBanner.ts" ],
         "orion_labs/home": [ "src/modules/orion_labs/home/home.ts" ],
         "orion_labs/homePageHandler": [ "src/modules/orion_labs/homePageHandler/homePageHandler.ts" ],
