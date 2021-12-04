@@ -114,7 +114,27 @@
         </div>
 
         <!-- Mobile drop down menu -->
-        <div if:true={isMobileMenuOpen} class="md:hidden flex flex-col items-end mt-8 mb-4 gap-y-4">
+        <nav
+            if:true={isMobileMenuOpen}
+            class="
+                md:hidden
+                w-80
+                flex flex-col
+                items-end
+                mt-8
+                mb-4
+                gap-y-4
+                absolute
+                bg-indigo-900
+                top-12
+                right-0
+                p-8
+                rounded-md
+                h-screen
+                animate-slide-in-left
+            "
+            data-id="mobile-menu"
+        >
             <orion_labs-nav-link navigate-to={aboutPage}>About</orion_labs-nav-link>
             <orion_labs-nav-link navigate-to={userListPage}>Users</orion_labs-nav-link>
             <!-- Sign in w/ salesforce button -->
@@ -147,6 +167,6 @@
             >
                 Logout
             </button>
-        </div>
+        </nav>
     </header>
 </template>
