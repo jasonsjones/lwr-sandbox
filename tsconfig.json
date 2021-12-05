@@ -44,6 +44,8 @@
         "orion_labs/navLink": [ "src/modules/orion_labs/navLink/navLink.ts" ],
         "orion_labs/userAddForm": [ "src/modules/orion_labs/userAddForm/userAddForm.ts" ],
         "orion_labs/userApi": [ "src/modules/orion_labs/userApi/userApi.ts" ],
+        "orion_labs/userDetails": [ "src/modules/orion_labs/userDetails/userDetails.ts" ],
+        "orion_labs/userDetailsPageHandler": [ "src/modules/orion_labs/userDetailsPageHandler/userDetailsPageHandler.ts" ],
         "orion_labs/userList": [ "src/modules/orion_labs/userList/userList.ts" ],
         "orion_labs/userListPageHandler": [ "src/modules/orion_labs/userListPageHandler/userListPageHandler.ts" ]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */

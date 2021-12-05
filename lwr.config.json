@@ -44,6 +44,15 @@
             }
         },
         {
+            "id": "user_details",
+            "path": "/users/:userId",
+            "rootComponent": "orion_labs/app",
+            "layoutTemplate": "$layoutsDir/main_layout.njk",
+            "bootstrap": {
+                "syntheticShadow": true
+            }
+        },
+        {
             "id": "doc",
             "path": "/doc",
             "contentTemplate": "$contentDir/orig-readme.md"

@@ -1,8 +1,12 @@
 import { LightningElement, track, wire } from 'lwc';
+import { NavigationContext, navigate } from 'lwr/navigation';
 import { createUser, getUsers, User } from 'orion_labs/userApi';
-
+import type { ContextId } from 'lwr/navigation';
 export default class UserList extends LightningElement {
     @track _users: User[];
+
+    @wire(NavigationContext)
+    navContext?: ContextId;
 
     @wire(getUsers)
     getAllUsers({ data, error }: { data: { users: User[] }; error: Error }): void {
@@ -17,7 +21,24 @@ export default class UserList extends LightningElement {
     }
 
     get users(): User[] {
-        return this._users || [];
+        return (this._users || []).map((user) => {
+            return {
+                ...user,
+                url: `/users/${user.id}`
+            };
+        });
+    }
+
+    handleUserClick(event: Event): void {
+        event.preventDefault();
+        event.stopPropagation();
+        const target = event.currentTarget as HTMLElement;
+        navigate(this.navContext, {
+            type: 'user_detail',
+            attributes: {
+                userId: target.dataset.id
+            }
+        });
     }
 
     async handleAddUser(event: CustomEvent): Promise<void> {
