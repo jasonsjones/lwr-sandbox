@@ -10,7 +10,7 @@ uses:
 types:
     User:
         (luvio.key):
-            userid: id
+            id: id
         (luvio.opaque): true
         (luvio.ttl): 20000
 
@@ -21,3 +21,10 @@ types:
     post:
         (luvio.adapter):
             name: createUser
+
+    /{id}:
+        get:
+            (luvio.adapter):
+                name: getUser
+            (luvio.key):
+                id: urlParams.id

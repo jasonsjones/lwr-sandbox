@@ -39,3 +39,14 @@ types:
                     application/json:
                         type: User
 
+/users/{id}:
+    uriParameters:
+        id: string
+    get:
+        description: Get a single user
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: User
+

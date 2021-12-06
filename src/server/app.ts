@@ -140,20 +140,6 @@ export default function (app: Express.Application): void {
     app.get('/api/v1/users/:id', (req: Request, res: Response) => {
         const { id } = req.params;
         const user = users.find((user) => user.id === id);
-        if (user) {
-            res.json({
-                success: true,
-                message: 'LWR user resource by id',
-                payload: {
-                    user
-                }
-            });
-        } else {
-            res.json({
-                success: false,
-                message: 'LWR user not found',
-                payload: null
-            });
-        }
+        res.json(user ?? null);
     });
 }
