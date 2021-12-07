@@ -5,11 +5,11 @@
     "private": true,
     "scripts": {
         "build": "yarn build:css && yarn generate:adapters && yarn build:utam",
-        "build:css": "tailwindcss -i src/styles/styles.css -o src/assets/styles/twcompiled.css",
+        "build:css": "tailwindcss -i src/styles/styles.css -o src/assets/styles/tailwind.css",
         "build:utam": "utam -c utam.config.js",
         "clean": "yarn clean:adapters && yarn clean:css && yarn clean:utam",
         "clean:adapters": "rm -rf __lwr_cache__ src/modules/orion_labs/userApi/generated",
-        "clean:css": "rm -rf src/assets/styles/twcompiled.css",
+        "clean:css": "rm -rf src/assets/styles/tailwind.css",
         "clean:utam": "rm -rf pageObjects",
         "lint": "eslint '**/*.{js,ts}' --max-warnings 0",
         "format": "prettier --write '**/*.{js,ts,json,md}'",

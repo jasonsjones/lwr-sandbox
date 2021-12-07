@@ -4,5 +4,5 @@ __lwr_cache__
 coverage
 pageObjects
 build
-twcompiled.css
+tailwind.css
 **/generated
