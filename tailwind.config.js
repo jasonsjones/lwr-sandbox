@@ -1,5 +1,6 @@
 module.exports = {
-    purge: [],
+    mode: 'jit',
+    purge: ['./src/modules/orion_labs/**/*.html'],
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
