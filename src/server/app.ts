@@ -26,6 +26,11 @@ const users: User[] = [
     }
 ];
 
+const sfdcInfo = {
+    accessToken: '',
+    instanceUrl: ''
+};
+
 // Hack to simulate "session" user, but this means this server only supports
 // a single auth'd user (for now...)
 let autheticatedUser: User | undefined;
@@ -64,10 +69,15 @@ export default function (app: Express.Application): void {
             {
                 clientID: process.env.SFDC_CLIENT_ID,
                 clientSecret: process.env.SFDC_CLIENT_SECRET,
-                scope: ['id'],
+                scope: ['id', 'api'],
                 callbackURL: 'http://localhost:4200/auth/sfdc/callback'
             },
             (token: any, refreshToken: any, profile: any, done: any) => {
+                sfdcInfo.accessToken = token.params.access_token;
+                sfdcInfo.instanceUrl = token.params.instance_url;
+
+                console.log(sfdcInfo);
+
                 const id = profile._raw.user_id;
                 const user = getUserBySfdcId(id);
                 if (user) {
@@ -119,6 +129,8 @@ export default function (app: Express.Application): void {
     // sense it does change the state...
     app.get('/api/v1/auth/logout', (req: Request, res: Response) => {
         autheticatedUser = undefined;
+        sfdcInfo.accessToken = '';
+        sfdcInfo.instanceUrl = '';
         res.json({
             success: true
         });
