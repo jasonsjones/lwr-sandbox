@@ -10,6 +10,20 @@
                 "css": "orion_labs-app"
             },
             "public": true
+        },
+        {
+            "name": "routerContainer",
+            "selector": {
+                "css": "lwr-router-container"
+            },
+            "public": true
+        },
+        {
+            "name": "mainLayout",
+            "selector": {
+                "css": "orion_labs-main-layout"
+            },
+            "public": true
         }
     ]
 }
