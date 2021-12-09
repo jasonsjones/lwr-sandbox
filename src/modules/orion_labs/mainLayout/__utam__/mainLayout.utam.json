@@ -1,0 +1,20 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "navbar",
+                "selector": {
+                    "css": "orion_labs-navbar"
+                },
+                "public": true
+            },
+            {
+                "name": "footer",
+                "selector": {
+                    "css": "orion_labs-footer"
+                },
+                "public": true
+            }
+        ]
+    }
+}
