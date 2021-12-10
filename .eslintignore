@@ -3,3 +3,5 @@ __lwr_cache__
 scripts/
 build/
 dist/
+pageObjects
+**/generated
