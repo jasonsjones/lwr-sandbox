@@ -2,18 +2,26 @@
     "shadow": {
         "elements": [
             {
-                "name": "navbar",
+                "name": "layoutScope",
                 "selector": {
-                    "css": "orion_labs-navbar"
+                    "css": "div.flex"
                 },
-                "public": true
-            },
-            {
-                "name": "footer",
-                "selector": {
-                    "css": "orion_labs-footer"
-                },
-                "public": true
+                "elements": [
+                    {
+                        "name": "navbar",
+                        "selector": {
+                            "css": "orion_labs-navbar"
+                        },
+                        "public": true
+                    },
+                    {
+                        "name": "footer",
+                        "selector": {
+                            "css": "orion_labs-footer"
+                        },
+                        "public": true
+                    }
+                ]
             }
         ]
     }
