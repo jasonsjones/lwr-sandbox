@@ -1,23 +1,12 @@
-import { LightningElement, wire } from 'lwc';
-import { NavigationContext, generateUrl, navigate } from 'lwr/navigation';
+import { LightningElement } from 'lwc';
 import type { ContextId, PageReference } from 'lwr/navigation';
 import { fetchAuthUser, logout } from 'orion_labs/authService';
 
 export default class NavBar extends LightningElement {
-    @wire(NavigationContext)
     navContext?: ContextId;
     homeUrl?: string;
     _isAuthenticated = false;
     isMobileMenuOpen = false;
-
-    handleClick(event: Event): void {
-        event.preventDefault();
-        if (this.navContext) {
-            navigate(this.navContext, {
-                type: 'home'
-            });
-        }
-    }
 
     get isAuthenticated() {
         return this._isAuthenticated;
@@ -26,6 +15,12 @@ export default class NavBar extends LightningElement {
     get aboutPage(): PageReference {
         return {
             type: 'about'
+        };
+    }
+
+    get homePage(): PageReference {
+        return {
+            type: 'home'
         };
     }
 
@@ -45,10 +40,6 @@ export default class NavBar extends LightningElement {
     }
 
     async connectedCallback(): Promise<void> {
-        if (this.navContext) {
-            this.homeUrl = generateUrl(this.navContext, { type: 'home' }) || undefined;
-        }
-
         const data = await fetchAuthUser();
         if (data.isAuthenticated) {
             this._isAuthenticated = true;

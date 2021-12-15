@@ -24,7 +24,12 @@ export default class UserList extends LightningElement {
         return (this._users || []).map((user) => {
             return {
                 ...user,
-                url: `/users/${user.id}`
+                pageRef: {
+                    type: 'user_detail',
+                    attributes: {
+                        userId: user.id
+                    }
+                }
             };
         });
     }

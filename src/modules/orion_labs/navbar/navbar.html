@@ -1,7 +1,7 @@
 <template>
     <header class="px-8 py-4 bg-indigo-900 text-gray-200">
         <div class="flex">
-            <a href={homeUrl} onclick={handleClick}>
+            <orion_labs-link navigate-to={homePage}>
                 <div class="flex flex-col items-end cursor-pointer">
                     <div class="text-3xl font-bold uppercase hover:text-white">Orion</div>
                     <div
@@ -17,8 +17,7 @@
                         labs
                     </div>
                 </div>
-            </a>
-
+            </orion_labs-link>
             <div class="hidden md:flex flex-1 items-center gap-x-16 px-24">
                 <orion_labs-nav-link navigate-to={aboutPage}>About</orion_labs-nav-link>
                 <orion_labs-nav-link navigate-to={userListPage}>Users</orion_labs-nav-link>
