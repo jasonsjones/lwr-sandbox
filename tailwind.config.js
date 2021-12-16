@@ -1,7 +1,6 @@
 module.exports = {
-    mode: 'jit',
-    purge: ['./src/modules/orion_labs/**/*.html'],
-    darkMode: false, // or 'media' or 'class'
+    content: ['./src/modules/orion_labs/**/*.html'],
+    darkMode: 'media', // or 'media' or 'class'
     theme: {
         extend: {
             keyframes: {
