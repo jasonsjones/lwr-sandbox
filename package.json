@@ -33,9 +33,6 @@
         "passport-forcedotcom": "0.1.5",
         "uuid": "8.3.2"
     },
-    "engines": {
-        "node": ">=14.15.4 <15"
-    },
     "devDependencies": {
         "@luvio/cli": "0.63.1",
         "@luvio/compiler": "0.63.1",
@@ -76,5 +73,9 @@
             "/__tests__/",
             "/jest_modules/"
         ]
+    },
+    "engines": {
+        "node": ">=16 <18"
     }
 }
+
