@@ -45,7 +45,7 @@ export default function (app: Express.Application): void {
     const ForceDotComStrategy = passportForceDotCom.Strategy;
 
     // custom middleware
-    app.use(async (req: Request, res: Response, next: NextFunction) => {
+    app.use(async (req: Request, _: Response, next: NextFunction) => {
         // console.log(`[Server] ${req.method} ${req.url}`);
         req.user = autheticatedUser;
         next();
@@ -72,7 +72,7 @@ export default function (app: Express.Application): void {
                 scope: ['id', 'api'],
                 callbackURL: 'http://localhost:4200/auth/sfdc/callback'
             },
-            (token: any, refreshToken: any, profile: any, done: any) => {
+            (token: any, _: any /* refreshToken */, profile: any, done: any) => {
                 sfdcInfo.accessToken = token.params.access_token;
                 sfdcInfo.instanceUrl = token.params.instance_url;
 
@@ -96,7 +96,7 @@ export default function (app: Express.Application): void {
         )
     );
 
-    app.get('/api/v1', (req: Request, res: Response) => {
+    app.get('/api/v1', (_: Request, res: Response) => {
         res.json({
             success: true,
             message: 'LWR custom API response'
@@ -127,7 +127,7 @@ export default function (app: Express.Application): void {
 
     // maybe this should be a post since it is somewhat 'destructive' in the
     // sense it does change the state...
-    app.get('/api/v1/auth/logout', (req: Request, res: Response) => {
+    app.get('/api/v1/auth/logout', (_: Request, res: Response) => {
         autheticatedUser = undefined;
         sfdcInfo.accessToken = '';
         sfdcInfo.instanceUrl = '';
@@ -136,7 +136,7 @@ export default function (app: Express.Application): void {
         });
     });
 
-    app.get('/api/v1/users', (req: Request, res: Response) => {
+    app.get('/api/v1/users', (_: Request, res: Response) => {
         res.json({ users });
     });
 
