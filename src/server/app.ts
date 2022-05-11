@@ -33,7 +33,7 @@ const sfdcInfo = {
 
 // Hack to simulate "session" user, but this means this server only supports
 // a single auth'd user (for now...)
-let autheticatedUser: User | undefined;
+let authenticated: User | undefined;
 
 function getUserBySfdcId(id: string): User | undefined {
     const user = users.find((user) => user.sfdcUserId === id);
@@ -47,7 +47,7 @@ export default function (app: Express.Application): void {
     // custom middleware
     app.use(async (req: Request, _: Response, next: NextFunction) => {
         // console.log(`[Server] ${req.method} ${req.url}`);
-        req.user = autheticatedUser;
+        req.user = authenticated;
         next();
     });
     app.use(Express.json({}));
@@ -81,7 +81,7 @@ export default function (app: Express.Application): void {
                 const id = profile._raw.user_id;
                 const user = getUserBySfdcId(id);
                 if (user) {
-                    autheticatedUser = user;
+                    authenticated = user;
                     return done(null, user);
                 }
                 const newUser: User = {
@@ -90,7 +90,7 @@ export default function (app: Express.Application): void {
                     sfdcUserId: id
                 };
                 users.push(newUser);
-                autheticatedUser = newUser;
+                authenticated = newUser;
                 return done(null, newUser);
             }
         )
@@ -128,7 +128,7 @@ export default function (app: Express.Application): void {
     // maybe this should be a post since it is somewhat 'destructive' in the
     // sense it does change the state...
     app.get('/api/v1/auth/logout', (_: Request, res: Response) => {
-        autheticatedUser = undefined;
+        authenticated = undefined;
         sfdcInfo.accessToken = '';
         sfdcInfo.instanceUrl = '';
         res.json({

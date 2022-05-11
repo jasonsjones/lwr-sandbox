@@ -1,7 +1,12 @@
 import { createServer } from 'lwr';
 import configureApp from './app';
 
-const lwrServer = createServer({ serverType: 'express' });
+let PORT;
+if (process.env.PORT) {
+    PORT = parseInt(process.env.PORT, 10) || 4200;
+}
+
+const lwrServer = createServer({ serverType: 'express', port: PORT });
 
 const app = lwrServer.getInternalServer<'express'>();
 
