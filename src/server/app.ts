@@ -70,7 +70,7 @@ export default function (app: Express.Application): void {
                 clientID: process.env.SFDC_CLIENT_ID,
                 clientSecret: process.env.SFDC_CLIENT_SECRET,
                 scope: ['id', 'api'],
-                callbackURL: 'http://localhost:4200/auth/sfdc/callback'
+                callbackURL: `/auth/sfdc/callback`
             },
             (token: any, _: any /* refreshToken */, profile: any, done: any) => {
                 sfdcInfo.accessToken = token.params.access_token;
