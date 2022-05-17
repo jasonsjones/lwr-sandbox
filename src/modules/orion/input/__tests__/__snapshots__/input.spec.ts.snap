@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`orion-input renders an input and label 1`] = `
+<orion-input>
+  #shadow-root(open)
+    <div
+      class="relative flex flex-col"
+    >
+      <input
+        class="peer h-10 border-b-2 border-gray-300 placeholder-transparent focus:border-indigo-400 focus:outline-none"
+        id="[shadow:guid]"
+        placeholder="Test Input"
+        type="text"
+      />
+      <label
+        class="absolute -top-3.5 left-0 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-gray-600"
+        for="[shadow:guid]"
+      >
+        Test Input
+      </label>
+    </div>
+</orion-input>
+`;

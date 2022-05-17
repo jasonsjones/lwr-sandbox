@@ -66,6 +66,7 @@
         "preset": "@lwc/jest-preset",
         "moduleNameMapper": {
             "^orion_labs/(.+)$": "<rootDir>/src/modules/orion_labs/$1/$1",
+            "^orion/(.+)$": "<rootDir>/src/modules/orion/$1/$1",
             "^lwr/(.+)$": "<rootDir>/jest_modules/lwr/$1/$1"
         },
         "coverageDirectory": "./coverage/jest/",

@@ -1,5 +1,5 @@
 module.exports = {
-    content: ['./src/modules/orion_labs/**/*.html'],
+    content: ['./src/modules/**/*.html'],
     darkMode: 'media', // or 'media' or 'class'
     theme: {
         extend: {
