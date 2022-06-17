@@ -18,6 +18,14 @@ export const routes: RouteDefinition[] = [
         }
     },
     {
+        id: 'login',
+        uri: '/login',
+        handler: (): Promise<RouteHandlerModule> => import('orion_labs/namedPageHandler'),
+        page: {
+            type: 'login'
+        }
+    },
+    {
         id: 'users',
         uri: '/users',
         handler: (): Promise<RouteHandlerModule> => import('orion_labs/userListPageHandler'),

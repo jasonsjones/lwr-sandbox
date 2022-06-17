@@ -12,6 +12,7 @@ export default class Input extends LightningElement {
 
     @api label: string;
     @api inputId = 'unknown';
+    @api type = 'text';
 
     get input() {
         return this.template.querySelector('input');

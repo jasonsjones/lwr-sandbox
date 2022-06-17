@@ -23,27 +23,9 @@
                 <orion_labs-nav-link navigate-to={userListPage}>Users</orion_labs-nav-link>
 
                 <div class="flex flex-1 justify-end">
-                    <!-- Sign in w/ salesforce button -->
-                    <a
-                        if:false={isAuthenticated}
-                        href="/api/v1/auth/sfdc"
-                        class="
-                            flex
-                            items-center
-                            p-2
-                            border-2 border-indigo-500
-                            rounded-md
-                            hover:bg-indigo-800
-                        "
-                    >
-                        <img
-                            src="/assets/images/salesforce-logo.svg"
-                            alt="salesforce logo"
-                            width="48"
-                            class="inline mr-2"
-                        />
-                        <span class="text-center"> Sign in with Salesforce </span>
-                    </a>
+                    <template if:false={isAuthenticated}>
+                        <orion_labs-nav-link navigate-to={loginPage}>Login</orion_labs-nav-link>
+                    </template>
 
                     <!-- Logout button -->
                     <button
@@ -127,6 +109,7 @@
                 bg-indigo-900
                 top-12
                 right-0
+                z-10
                 p-8
                 rounded-md
                 h-screen
@@ -136,27 +119,9 @@
         >
             <orion_labs-nav-link navigate-to={aboutPage}>About</orion_labs-nav-link>
             <orion_labs-nav-link navigate-to={userListPage}>Users</orion_labs-nav-link>
-            <!-- Sign in w/ salesforce button -->
-            <a
-                if:false={isAuthenticated}
-                href="/api/v1/auth/sfdc"
-                class="
-                    flex
-                    items-center
-                    p-2
-                    border-2 border-indigo-500
-                    rounded-md
-                    hover:bg-indigo-800
-                "
-            >
-                <img
-                    src="/assets/images/salesforce-logo.svg"
-                    alt="salesforce logo"
-                    width="48"
-                    class="inline mr-2"
-                />
-                <span class="text-center"> Sign in with Salesforce </span>
-            </a>
+            <template if:false={isAuthenticated}>
+                <orion_labs-nav-link navigate-to={loginPage}>Login</orion_labs-nav-link>
+            </template>
 
             <!-- Logout button -->
             <button

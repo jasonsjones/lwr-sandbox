@@ -24,6 +24,12 @@ export default class NavBar extends LightningElement {
         };
     }
 
+    get loginPage(): PageReference {
+        return {
+            type: 'login'
+        };
+    }
+
     get userListPage(): PageReference {
         return {
             type: 'users'
