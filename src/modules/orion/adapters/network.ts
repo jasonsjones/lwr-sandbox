@@ -27,4 +27,4 @@ async function networkAdapter(resourceRequest: ResourceRequest): Promise<FetchRe
 
 const luvio = new Luvio(new Environment(store, networkAdapter));
 
-export { networkAdapter, luvio }
+export { networkAdapter, luvio };
