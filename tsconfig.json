@@ -46,8 +46,12 @@
             "orion_labs/homePageHandler": [
                 "src/modules/orion_labs/homePageHandler/homePageHandler.ts"
             ],
-            "orion_labs/link": ["src/modules/orion_labs/linkk/linkk.ts"],
+            "orion_labs/link": ["src/modules/orion_labs/link/link.ts"],
+            "orion_labs/login": ["src/modules/orion_labs/login/login.ts"],
             "orion_labs/mainLayout": ["src/modules/orion_labs/mainLayout/mainLayout.ts"],
+            "orion_labs/namedPageHandler": [
+                "src/modules/orion_labs/namedPageHandler/namedPageHandler.ts"
+            ],
             "orion_labs/navbar": ["src/modules/orion_labs/navbar/navbar.ts"],
             "orion_labs/navLink": ["src/modules/orion_labs/navLink/navLink.ts"],
             "orion_labs/userAddForm": ["src/modules/orion_labs/userAddForm/userAddForm.ts"],
