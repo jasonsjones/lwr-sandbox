@@ -12,28 +12,22 @@ export default class NavBar extends LightningElement {
         return this._isAuthenticated;
     }
 
-    get aboutPage(): PageReference {
-        return {
-            type: 'about'
-        };
-    }
-
     get homePage(): PageReference {
         return {
             type: 'home'
         };
     }
 
+    get aboutPage(): PageReference {
+        return this.getPageReferenceFor('about');
+    }
+
     get loginPage(): PageReference {
-        return {
-            type: 'login'
-        };
+        return this.getPageReferenceFor('login');
     }
 
     get userListPage(): PageReference {
-        return {
-            type: 'users'
-        };
+        return this.getPageReferenceFor('users');
     }
 
     toggleMobileMenu(): void {
@@ -50,5 +44,14 @@ export default class NavBar extends LightningElement {
         if (data.isAuthenticated) {
             this._isAuthenticated = true;
         }
+    }
+
+    getPageReferenceFor(pageName: string): PageReference {
+        return {
+            type: 'namedPage',
+            attributes: {
+                pageName
+            }
+        };
     }
 }

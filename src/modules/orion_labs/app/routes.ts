@@ -10,27 +10,14 @@ export const routes: RouteDefinition[] = [
         }
     },
     {
-        id: 'about',
-        uri: '/about',
-        handler: (): Promise<RouteHandlerModule> => import('orion_labs/aboutPageHandler'),
-        page: {
-            type: 'about'
-        }
-    },
-    {
-        id: 'login',
-        uri: '/login',
+        id: 'namedPage',
+        uri: '/:pageName',
         handler: (): Promise<RouteHandlerModule> => import('orion_labs/namedPageHandler'),
         page: {
-            type: 'login'
-        }
-    },
-    {
-        id: 'users',
-        uri: '/users',
-        handler: (): Promise<RouteHandlerModule> => import('orion_labs/userListPageHandler'),
-        page: {
-            type: 'users'
+            type: 'namedPage',
+            attributes: {
+                pageName: ':pageName'
+            }
         }
     },
     {
