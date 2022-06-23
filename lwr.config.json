@@ -18,53 +18,12 @@
     "routes": [
         {
             "id": "home",
-            "path": "/",
+            "path": "/*",
             "rootComponent": "orion_labs/app",
             "layoutTemplate": "$layoutsDir/main_layout.njk",
             "bootstrap": {
                 "syntheticShadow": true
             }
-        },
-        {
-            "id": "about",
-            "path": "/about",
-            "rootComponent": "orion_labs/app",
-            "layoutTemplate": "$layoutsDir/main_layout.njk",
-            "bootstrap": {
-                "syntheticShadow": true
-            }
-        },
-        {
-            "id": "login",
-            "path": "/login",
-            "rootComponent": "orion_labs/app",
-            "layoutTemplate": "$layoutsDir/main_layout.njk",
-            "bootstrap": {
-                "syntheticShadow": true
-            }
-        },
-        {
-            "id": "users",
-            "path": "/users",
-            "rootComponent": "orion_labs/app",
-            "layoutTemplate": "$layoutsDir/main_layout.njk",
-            "bootstrap": {
-                "syntheticShadow": true
-            }
-        },
-        {
-            "id": "user_details",
-            "path": "/users/:userId",
-            "rootComponent": "orion_labs/app",
-            "layoutTemplate": "$layoutsDir/main_layout.njk",
-            "bootstrap": {
-                "syntheticShadow": true
-            }
-        },
-        {
-            "id": "doc",
-            "path": "/doc",
-            "contentTemplate": "$contentDir/orig-readme.md"
         }
     ]
 }

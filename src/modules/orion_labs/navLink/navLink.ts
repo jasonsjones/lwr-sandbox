@@ -13,7 +13,7 @@ export default class NavLink extends LightningElement {
     @wire(CurrentPageReference)
     printPageType(pageRef: PageReference): void {
         this._currentPageRef = pageRef;
-        this._isActiveLink = this.navigateTo.type === pageRef.type;
+        this._isActiveLink = this.navigateTo.attributes?.pageName === pageRef.attributes?.pageName;
     }
 
     @api
