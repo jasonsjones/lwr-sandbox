@@ -23,12 +23,12 @@ export const routes: RouteDefinition[] = [
     {
         id: 'user-detail',
         uri: '/users/:userId',
+        handler: (): Promise<RouteHandlerModule> => import('orion_labs/userDetailsPageHandler'),
         page: {
             type: 'user_detail',
             attributes: {
                 userId: ':userId'
             }
-        },
-        handler: (): Promise<RouteHandlerModule> => import('orion_labs/userDetailsPageHandler')
+        }
     }
 ];
