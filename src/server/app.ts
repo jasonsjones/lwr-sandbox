@@ -3,28 +3,11 @@ import Express, { Request, Response, NextFunction } from 'express';
 import passport from 'passport';
 import passportForceDotCom from 'passport-forcedotcom';
 import { v4 } from 'uuid';
+import { User } from './user/types';
+import { createUser, getUserBySfdcId } from './user/userService';
+import * as UserController from './user/userController';
 
 // NOTICE: Please ignore this tangled mess of code ;-)
-interface User {
-    id: string;
-    name: string;
-    sfdcUserId?: string;
-}
-
-const users: User[] = [
-    {
-        id: v4(),
-        name: 'James Gordon'
-    },
-    {
-        id: v4(),
-        name: 'Joe West'
-    },
-    {
-        id: v4(),
-        name: 'William Riker'
-    }
-];
 
 const sfdcInfo = {
     accessToken: '',
@@ -34,11 +17,6 @@ const sfdcInfo = {
 // Hack to simulate "session" user, but this means this server only supports
 // a single auth'd user (for now...)
 let authenticated: User | undefined;
-
-function getUserBySfdcId(id: string): User | undefined {
-    const user = users.find((user) => user.sfdcUserId === id);
-    return user;
-}
 
 export default function (app: Express.Application): void {
     dotenv.config();
@@ -72,24 +50,19 @@ export default function (app: Express.Application): void {
                 scope: ['id', 'api'],
                 callbackURL: `/auth/sfdc/callback`
             },
-            (token: any, _: any /* refreshToken */, profile: any, done: any) => {
+            async (token: any, _: any /* refreshToken */, profile: any, done: any) => {
                 sfdcInfo.accessToken = token.params.access_token;
                 sfdcInfo.instanceUrl = token.params.instance_url;
 
                 console.log(sfdcInfo);
 
                 const id = profile._raw.user_id;
-                const user = getUserBySfdcId(id);
+                const user = await getUserBySfdcId(id);
                 if (user) {
                     authenticated = user;
                     return done(null, user);
                 }
-                const newUser: User = {
-                    id: v4(),
-                    name: profile.displayName,
-                    sfdcUserId: id
-                };
-                users.push(newUser);
+                const newUser = await createUser({ name: profile.displayName, sfdcUserId: id });
                 authenticated = newUser;
                 return done(null, newUser);
             }
@@ -136,22 +109,8 @@ export default function (app: Express.Application): void {
         });
     });
 
-    app.get('/api/v1/users', (_: Request, res: Response) => {
-        res.json({ users });
-    });
-
-    app.post('/api/v1/users', (req: Request, res: Response) => {
-        const newUser = {
-            id: v4(),
-            name: req.body.name
-        };
-        users.push(newUser);
-        res.status(201).json(newUser);
-    });
-
-    app.get('/api/v1/users/:id', (req: Request, res: Response) => {
-        const { id } = req.params;
-        const user = users.find((user) => user.id === id);
-        res.json(user ?? null);
-    });
+    // user routes
+    app.get('/api/v1/users', UserController.getUsers);
+    app.post('/api/v1/users', UserController.createUser);
+    app.get('/api/v1/users/:id', UserController.getUserById);
 }
