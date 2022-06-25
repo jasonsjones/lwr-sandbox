@@ -5,7 +5,7 @@ import passportForceDotCom from 'passport-forcedotcom';
 import { v4 } from 'uuid';
 import { User } from './user/types';
 import { createUser, getUserBySfdcId } from './user/userService';
-import * as UserController from './user/userController';
+import userRouter from './/user/userRouter';
 
 // NOTICE: Please ignore this tangled mess of code ;-)
 
@@ -110,7 +110,5 @@ export default function (app: Express.Application): void {
     });
 
     // user routes
-    app.get('/api/v1/users', UserController.getUsers);
-    app.post('/api/v1/users', UserController.createUser);
-    app.get('/api/v1/users/:id', UserController.getUserById);
+    app.use('/api/v1/users', userRouter);
 }
