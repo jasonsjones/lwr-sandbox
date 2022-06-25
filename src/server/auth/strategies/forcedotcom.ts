@@ -10,7 +10,7 @@ const strategyOptions = {
     clientID: process.env.SFDC_CLIENT_ID,
     clientSecret: process.env.SFDC_CLIENT_SECRET,
     scope: ['id', 'api'],
-    callbackURL: `/auth/sfdc/callback`
+    callbackURL: `/api/v1/auth/sfdc/callback`
 };
 
 async function verifyCallback(token: any, _: any /* refreshToken */, profile: any, done: any) {
