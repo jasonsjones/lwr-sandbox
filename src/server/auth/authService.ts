@@ -15,3 +15,7 @@ export function setAuthenticatedUser(user: User): void {
 export function logoutAuthenticatedUser(): void {
     authenticatedUser = undefined;
 }
+
+export function verifyPassword(user: User, password: string): boolean {
+    return user.password === password;
+}

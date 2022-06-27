@@ -8,6 +8,8 @@ router.get('/sfdc', passport.authenticate('forcedotcom'), () => {
     // the request will be directed to salesforce for authentication, so this
     // callback will not be called.
 });
+
+router.post('/login', passport.authenticate('local'), AuthController.login);
 router.get('/sfdc/callback', passport.authenticate('forcedotcom'), AuthController.sfdcCallback);
 router.get('/me', AuthController.getMe);
 
