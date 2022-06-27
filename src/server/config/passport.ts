@@ -1,6 +1,7 @@
 import { PassportStatic } from 'passport';
 import { User } from '../user/types';
 import forcedotcomStrategy from '../auth/strategies/forcedotcom';
+import localStrategy from '../auth/strategies/local';
 
 export function configurePassport(passport: PassportStatic) {
     passport.serializeUser((user, done) => {
@@ -13,5 +14,6 @@ export function configurePassport(passport: PassportStatic) {
         done(null, user);
     });
 
+    passport.use(localStrategy);
     passport.use(forcedotcomStrategy);
 }

@@ -31,6 +31,7 @@
         "lwr": "0.6.5",
         "passport": "0.5.2",
         "passport-forcedotcom": "0.1.5",
+        "passport-local": "1.0.0",
         "uuid": "8.3.2"
     },
     "devDependencies": {
@@ -40,6 +41,7 @@
         "@types/jest": "27.5.0",
         "@types/mocha": "9.1.1",
         "@types/passport": "1.0.7",
+        "@types/passport-local": "1.0.34",
         "@types/uuid": "8.3.4",
         "@typescript-eslint/eslint-plugin": "5.22.0",
         "@typescript-eslint/parser": "5.22.0",
