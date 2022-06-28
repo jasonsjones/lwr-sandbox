@@ -1,6 +1,7 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { User } from '../user/types';
-import { logoutAuthenticatedUser, setAuthenticatedUser } from './authService';
+import { getUserByEmail } from '../user/userService';
+import { logoutAuthenticatedUser, setAuthenticatedUser, verifyPassword } from './authService';
 
 export async function sfdcCallback(req: Request, res: Response) {
     console.log(`[Server] sfdc callback:`);
@@ -32,5 +33,21 @@ export async function login(req: Request, res: Response) {
         success: true,
         accessToken: 'jwt.token.here',
         user: userInfo
+    });
+}
+
+export async function authenticate(req: Request, res: Response, next: NextFunction) {
+    const { email, password } = req.body;
+    const user = await getUserByEmail(email);
+
+    if (user && verifyPassword(user, password)) {
+        req.user = user;
+        return next();
+    }
+
+    res.status(401).json({
+        success: false,
+        accessToken: null,
+        user: null
     });
 }
