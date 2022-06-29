@@ -13,6 +13,14 @@ types:
             id: id
         (luvio.opaque): true
         (luvio.ttl): 20000
+    LoginResponse:
+        (luvio.key):
+            accessToken: accessToken
+
+/auth/login:
+    post:
+        (luvio.adapter):
+            name: login
 
 /users:
     get:

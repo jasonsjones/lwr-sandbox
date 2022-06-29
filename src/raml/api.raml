@@ -4,6 +4,25 @@ version: v1
 baseUri: /api/v1
 
 types:
+    LoginInput:
+        type: object
+        properties:
+            email:
+                type: string
+                required: true
+            password:
+                type: string
+                required: true
+    LoginUnauthorized:
+        type: object 
+        properties:
+            message: string
+    LoginResponse:
+        type: object 
+        properties:
+            success: boolean
+            accessToken: string | nil
+            user: User | nil 
     User:
         type: object
         properties:
@@ -20,6 +39,23 @@ types:
                 type: string
                 required: true
 
+/auth/login:
+    post:
+        description: Authenticate to application
+        body:
+            application/json:
+                type: LoginInput
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: LoginResponse
+            401:
+                body:
+                    application/json:
+                        type: LoginUnauthorized
+                        example: |
+                            { "message": "Unauthorized" }
 /users:
     get:
         description: Get the list of users
