@@ -1,36 +1,13 @@
-import dotenv from 'dotenv';
 import { v4 } from 'uuid';
 import { CreateUserDTO, User } from './types';
-
-dotenv.config();
-
-const users: User[] = [
-    {
-        id: v4(),
-        name: 'James Gordon',
-        email: 'jgordon@gotham.gov',
-        password: process.env.DEFAULT_PASSWORD || 'password'
-    },
-    {
-        id: v4(),
-        name: 'Joe West',
-        email: 'jwest@centralcity.gov',
-        password: process.env.DEFAULT_PASSWORD || 'password'
-    },
-    {
-        id: v4(),
-        name: 'William Riker',
-        email: 'xo@ncc1701.mil',
-        password: process.env.DEFAULT_PASSWORD || 'password'
-    }
-];
+import { users } from './users';
 
 export async function createUser(userData: CreateUserDTO): Promise<User> {
     const newUser: User = {
         id: v4(),
         name: userData.name,
         email: userData.email,
-        password: process.env.DEFAULT_PASSWORD || 'password',
+        password: process.env.DEFAULT_PASSWORD || 'password', // WARNING: don't do this! Need to hash the password
         sfdcUserId: userData.sfdcUserId
     };
     users.push(newUser);
@@ -57,8 +34,8 @@ export async function getUserBySfdcId(id: string): Promise<User | undefined> {
 }
 
 export function sanitizeUser(user: User) {
-    const { password, ...userInfo } = user;
+    const { password, ...clientSideInfo } = user;
     return {
-        ...userInfo
+        ...clientSideInfo
     };
 }
