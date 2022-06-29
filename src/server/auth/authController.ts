@@ -26,13 +26,13 @@ export async function logout(req: Request, res: Response) {
 }
 
 export async function login(req: Request, res: Response) {
-    const { password: _, ...userInfo } = req.user as User;
+    const { password, ...clientSideInfo } = req.user as User;
     setAuthenticatedUser(req.user as User);
 
     res.json({
         success: true,
         accessToken: 'jwt.token.here',
-        user: userInfo
+        user: clientSideInfo
     });
 }
 
