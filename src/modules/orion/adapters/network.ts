@@ -19,8 +19,8 @@ async function networkAdapter(resourceRequest: ResourceRequest): Promise<FetchRe
     return {
         body: resBody,
         status: response.status,
-        statusText: 'ok',
-        ok: response.status === 200 || response.status === 201,
+        statusText: response.statusText,
+        ok: response.ok,
         headers: {}
     };
 }

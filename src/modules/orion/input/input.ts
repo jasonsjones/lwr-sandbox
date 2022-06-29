@@ -2,6 +2,8 @@ import { api, LightningElement } from 'lwc';
 
 export default class Input extends LightningElement {
     _value: string;
+    _type: string;
+
     @api get value() {
         return this._value || '';
     }
@@ -12,7 +14,19 @@ export default class Input extends LightningElement {
 
     @api label: string;
     @api inputId = 'unknown';
-    @api type = 'text';
+
+    @api
+    get type() {
+        return this._type || 'text';
+    }
+    set type(value) {
+        this._type = value;
+        this.setAttribute('type', this._type);
+    }
+
+    @api focus() {
+        this.input?.focus();
+    }
 
     get input() {
         return this.template.querySelector('input');
