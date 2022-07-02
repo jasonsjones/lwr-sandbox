@@ -9,7 +9,7 @@ const password = '123456';
 export const users: User[] = [
     {
         id: v4(),
-        name: 'Ed baldwin',
+        name: 'Ed Baldwin',
         email: 'ed@nasa.gov',
         password: process.env.DEFAULT_PASSWORD || password
     },

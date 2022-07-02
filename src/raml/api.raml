@@ -4,6 +4,12 @@ version: v1
 baseUri: /api/v1
 
 types:
+    ContextUserResponse:
+        type: object
+        properties:
+            success: boolean
+            isAuthenticated: boolean
+            user: User | nil
     LoginInput:
         type: object
         properties:
@@ -39,23 +45,32 @@ types:
                 type: string
                 required: true
 
-/auth/login:
-    post:
-        description: Authenticate to application
-        body:
-            application/json:
-                type: LoginInput
-        responses:
-            200:
-                body:
-                    application/json:
-                        type: LoginResponse
-            401:
-                body:
-                    application/json:
-                        type: LoginUnauthorized
-                        example: |
-                            { "message": "Unauthorized" }
+/auth:
+    /me:
+        get:
+            description: Get the context user
+            responses:
+                200:
+                    body:
+                        application/json:
+                            type: ContextUserResponse
+    /login:
+        post:
+            description: Authenticate to application
+            body:
+                application/json:
+                    type: LoginInput
+            responses:
+                200:
+                    body:
+                        application/json:
+                            type: LoginResponse
+                401:
+                    body:
+                        application/json:
+                            type: LoginUnauthorized
+                            example: |
+                                { "message": "Unauthorized" }
 /users:
     get:
         description: Get the list of users

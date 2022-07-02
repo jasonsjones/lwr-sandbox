@@ -8,6 +8,8 @@ uses:
 (luvio.ttl): 30000
 
 types:
+    ContextUserResponse:
+        (luvio.ttl): 5000
     User:
         (luvio.key):
             id: id
@@ -17,10 +19,15 @@ types:
         (luvio.key):
             accessToken: accessToken
 
-/auth/login:
-    post:
-        (luvio.adapter):
-            name: login
+/auth:
+    /me:
+        get:
+            (luvio.adapter):
+                name: getContextUser
+    /login:
+        post:
+            (luvio.adapter):
+                name: login
 
 /users:
     get:
