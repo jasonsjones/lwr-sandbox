@@ -1,12 +1,21 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import type { ContextId, PageReference } from 'lwr/navigation';
-import { fetchAuthUser, logout } from 'orion_labs/authService';
+import { logout } from 'orion_labs/authService';
+import { getContextUser } from 'orion_labs/authApi';
+import { ContextUserResponse } from 'src/generated/types/ContextUserResponse';
 
 export default class NavBar extends LightningElement {
     navContext?: ContextId;
     homeUrl?: string;
     _isAuthenticated = false;
     isMobileMenuOpen = false;
+
+    @wire(getContextUser)
+    ctxUser({ data }: { data: ContextUserResponse; error: Error }): void {
+        if (data?.isAuthenticated) {
+            this._isAuthenticated = true;
+        }
+    }
 
     get isAuthenticated() {
         return this._isAuthenticated;
@@ -37,13 +46,6 @@ export default class NavBar extends LightningElement {
     async handleLogout() {
         await logout();
         this._isAuthenticated = false;
-    }
-
-    async connectedCallback(): Promise<void> {
-        const data = await fetchAuthUser();
-        if (data.isAuthenticated) {
-            this._isAuthenticated = true;
-        }
     }
 
     getPageReferenceFor(pageName: string): PageReference {
