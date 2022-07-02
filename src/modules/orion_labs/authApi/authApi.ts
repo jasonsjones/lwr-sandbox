@@ -1,1 +1,1 @@
-export { getContextUser, login } from './adapters';
+export { getContextUser, login, logout } from './adapters';

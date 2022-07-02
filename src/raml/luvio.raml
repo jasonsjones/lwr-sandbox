@@ -15,7 +15,7 @@ types:
             id: id
         (luvio.opaque): true
         (luvio.ttl): 20000
-    LoginResponse:
+    AuthResponse:
         (luvio.key):
             accessToken: accessToken
 
@@ -28,7 +28,10 @@ types:
         post:
             (luvio.adapter):
                 name: login
-
+    /logout:
+        post:
+            (luvio.adapter):
+                name: logout
 /users:
     get:
         (luvio.adapter):

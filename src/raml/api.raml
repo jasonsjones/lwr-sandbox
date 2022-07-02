@@ -19,16 +19,17 @@ types:
             password:
                 type: string
                 required: true
+    AuthResponse:
+        type: object 
+        properties:
+            success: boolean
+            accessToken: string
+            user: User | nil 
+
     LoginUnauthorized:
         type: object 
         properties:
             message: string
-    LoginResponse:
-        type: object 
-        properties:
-            success: boolean
-            accessToken: string | nil
-            user: User | nil 
     User:
         type: object
         properties:
@@ -64,13 +65,21 @@ types:
                 200:
                     body:
                         application/json:
-                            type: LoginResponse
+                            type: AuthResponse
                 401:
                     body:
                         application/json:
                             type: LoginUnauthorized
                             example: |
                                 { "message": "Unauthorized" }
+    /logout:
+        post:
+            description: Logout context user
+            responses:
+                200:
+                    body:
+                        application/json:
+                            type: AuthResponse
 /users:
     get:
         description: Get the list of users
