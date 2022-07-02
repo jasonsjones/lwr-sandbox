@@ -21,7 +21,9 @@ export async function getMe(req: Request, res: Response) {
 export async function logout(req: Request, res: Response) {
     logoutAuthenticatedUser();
     res.json({
-        success: true
+        success: true,
+        accessToken: 'none',
+        user: null
     });
 }
 

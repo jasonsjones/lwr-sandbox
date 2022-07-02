@@ -17,8 +17,6 @@ router.post('/login', AuthController.authenticate, AuthController.login);
 router.get('/sfdc/callback', passport.authenticate('forcedotcom'), AuthController.sfdcCallback);
 router.get('/me', AuthController.getMe);
 
-// maybe this should be a post since it is somewhat 'destructive' in the
-// sense it does change the state...
-router.get('/logout', AuthController.logout);
+router.post('/logout', AuthController.logout);
 
 export default router;

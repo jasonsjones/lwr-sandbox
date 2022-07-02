@@ -1,7 +1,6 @@
 import { LightningElement, wire } from 'lwc';
 import type { ContextId, PageReference } from 'lwr/navigation';
-import { logout } from 'orion_labs/authService';
-import { getContextUser } from 'orion_labs/authApi';
+import { getContextUser, logout } from 'orion_labs/authApi';
 import { ContextUserResponse } from 'src/generated/types/ContextUserResponse';
 
 export default class NavBar extends LightningElement {
@@ -44,8 +43,10 @@ export default class NavBar extends LightningElement {
     }
 
     async handleLogout() {
-        await logout();
-        this._isAuthenticated = false;
+        const response = await logout({});
+        if (response?.data?.success) {
+            this._isAuthenticated = false;
+        }
     }
 
     getPageReferenceFor(pageName: string): PageReference {

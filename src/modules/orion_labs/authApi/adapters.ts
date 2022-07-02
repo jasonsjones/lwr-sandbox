@@ -2,6 +2,7 @@ import { Adapter } from '@luvio/engine';
 import { luvio } from 'orion/adapters';
 import { createWireAdapterConstructor } from '@luvio/lwc-luvio';
 import { loginAdapterFactory } from '../../../generated/adapters/login';
+import { logoutAdapterFactory } from '../../../generated/adapters/logout';
 import { getContextUserAdapterFactory } from '../../../generated/adapters/getContextUser';
 
 const getContextUserLuvioAdapter = getContextUserAdapterFactory(luvio);
@@ -12,5 +13,6 @@ const GetContextUserWireAdapter = createWireAdapterConstructor(
     luvio
 );
 const login = loginAdapterFactory(luvio);
+const logout = logoutAdapterFactory(luvio);
 
-export { GetContextUserWireAdapter as getContextUser, login };
+export { GetContextUserWireAdapter as getContextUser, login, logout };
