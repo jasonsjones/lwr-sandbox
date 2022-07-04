@@ -5,14 +5,7 @@
                 <div class="flex flex-col items-end cursor-pointer">
                     <div class="text-3xl font-bold uppercase hover:text-white">Orion</div>
                     <div
-                        class="
-                            -mr-2
-                            px-2
-                            text-lg text-white
-                            font-semibold
-                            bg-indigo-400
-                            rounded-full
-                        "
+                        class="-mr-2 px-2 text-lg text-white font-semibold bg-indigo-400 rounded-full"
                     >
                         labs
                     </div>
@@ -22,11 +15,12 @@
                 <orion_labs-nav-link navigate-to={aboutPage}>About</orion_labs-nav-link>
                 <orion_labs-nav-link navigate-to={userListPage}>Users</orion_labs-nav-link>
 
-                <div class="flex flex-1 justify-end">
+                <div class="flex flex-1 justify-end items-center gap-x-8">
                     <template if:false={isAuthenticated}>
                         <orion_labs-nav-link navigate-to={loginPage}>Login</orion_labs-nav-link>
                     </template>
 
+                    <p if:true={isAuthenticated}>{user.name}</p>
                     <!-- Logout button -->
                     <button
                         if:true={isAuthenticated}
@@ -97,24 +91,7 @@
         <!-- Mobile drop down menu -->
         <nav
             if:true={isMobileMenuOpen}
-            class="
-                md:hidden
-                w-80
-                flex flex-col
-                items-end
-                mt-8
-                mb-4
-                gap-y-4
-                absolute
-                bg-indigo-900
-                top-12
-                right-0
-                z-10
-                p-8
-                rounded-md
-                h-screen
-                animate-slide-in-left
-            "
+            class="md:hidden w-80 flex flex-col items-end mt-8 mb-4 gap-y-4 absolute bg-indigo-900 top-12 right-0 z-10 p-8 rounded-md h-screen animate-slide-in-left"
             data-id="mobile-menu"
         >
             <orion_labs-nav-link navigate-to={aboutPage}>About</orion_labs-nav-link>
