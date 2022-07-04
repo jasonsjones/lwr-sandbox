@@ -1,5 +1,7 @@
 import { LightningElement, wire } from 'lwc';
+import { CurrentPageReference } from 'lwr/navigation';
 import type { ContextId, PageReference } from 'lwr/navigation';
+import { fireEvent } from 'orion/eventEmitter';
 import { getContextUser, logout } from 'orion_labs/authApi';
 import { ContextUserResponse } from 'src/generated/types/ContextUserResponse';
 
@@ -8,6 +10,9 @@ export default class NavBar extends LightningElement {
     homeUrl?: string;
     _isAuthenticated = false;
     isMobileMenuOpen = false;
+
+    @wire(CurrentPageReference)
+    pageRef: PageReference;
 
     @wire(getContextUser)
     ctxUser({ data }: { data: ContextUserResponse; error: Error }): void {
@@ -45,6 +50,7 @@ export default class NavBar extends LightningElement {
     async handleLogout() {
         const response = await logout({});
         if (response?.data?.success) {
+            fireEvent(this.pageRef, 'logout', { message: 'user logout' });
             this._isAuthenticated = false;
         }
     }
