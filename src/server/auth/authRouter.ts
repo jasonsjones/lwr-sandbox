@@ -14,7 +14,11 @@ router.get('/sfdc', passport.authenticate('forcedotcom'), () => {
 
 // router.post('/login', passport.authenticate('local'), AuthController.login);
 router.post('/login', AuthController.authenticate, AuthController.login);
-router.get('/sfdc/callback', passport.authenticate('forcedotcom'), AuthController.sfdcCallback);
+router.get(
+    '/sfdc/callback',
+    passport.authenticate('forcedotcom', { session: false }),
+    AuthController.sfdcCallback
+);
 router.get('/me', AuthController.getMe);
 
 router.post('/logout', AuthController.logout);

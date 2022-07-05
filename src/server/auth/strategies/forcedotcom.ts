@@ -29,7 +29,7 @@ async function verifyCallback(token: any, _: any /* refreshToken */, profile: an
     console.log(`[Server] user not found; creating new user...`);
     const newUser = await createUser({
         name: profile.displayName,
-        email: profile.email[0].value,
+        email: profile.emails[0].value,
         password: '',
         sfdcUserId: id
     });
