@@ -3,7 +3,6 @@ import { CurrentPageReference } from 'lwr/navigation';
 import type { ContextId, PageReference } from 'lwr/navigation';
 import { fireEvent } from 'orion/eventEmitter';
 import { getContextUser, logout } from 'orion_labs/authApi';
-import { ContextUserResponse } from 'src/generated/types/ContextUserResponse';
 import { User } from 'orion_labs/userApi';
 
 export default class NavBar extends LightningElement {
@@ -17,7 +16,7 @@ export default class NavBar extends LightningElement {
     pageRef: PageReference;
 
     @wire(getContextUser)
-    ctxUser({ data }: { data: ContextUserResponse; error: Error }): void {
+    ctxUser({ data }: { data: any; error: Error }): void {
         this._isAuthenticated = false;
 
         if (data?.isAuthenticated) {

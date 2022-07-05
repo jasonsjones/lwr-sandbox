@@ -1,9 +1,9 @@
 import { Adapter } from '@luvio/engine';
-import { luvio } from 'orion/adapters';
 import { createWireAdapterConstructor } from '@luvio/lwc-luvio';
-import { getUsersAdapterFactory } from '../../../generated/adapters/getUsers';
-import { getUserAdapterFactory } from '../../../generated/adapters/getUser';
-import { createUserAdapterFactory } from '../../../generated/adapters/createUser';
+import { createUserAdapterFactory } from './generated/adapters/createUser';
+import { getUserAdapterFactory } from './generated/adapters/getUser';
+import { getUsersAdapterFactory } from './generated/adapters/getUsers';
+import { luvio } from './network';
 
 const getUsersLuvioAdapter = getUsersAdapterFactory(luvio);
 const getUserLuvioAdapter = getUserAdapterFactory(luvio);

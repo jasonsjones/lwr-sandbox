@@ -1,1 +1,1 @@
-export { getContextUser, login, logout } from './adapters';
+export { getContextUser, login, logout } from 'orion/adapters';

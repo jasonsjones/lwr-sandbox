@@ -1,1 +1,2 @@
-export { luvio } from './network';
+export { getContextUser, login, logout } from './adapterAuth';
+export { getUsers, getUser, createUser } from './adapterUser';
