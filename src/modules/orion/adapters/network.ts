@@ -1,6 +1,6 @@
-import { Environment, FetchResponse, Luvio, ResourceRequest, Store } from '@luvio/engine';
+import { Environment, FetchResponse, InMemoryStore, Luvio, ResourceRequest } from '@luvio/engine';
 
-const store = new Store();
+const store = new InMemoryStore();
 
 async function networkAdapter(resourceRequest: ResourceRequest): Promise<FetchResponse<any>> {
     const { baseUri, basePath, body, method } = resourceRequest;

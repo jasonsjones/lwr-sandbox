@@ -2202,43 +2202,43 @@
   resolved "https://registry.yarnpkg.com/@locker/shared/-/shared-0.15.16.tgz#4af576f2d51b238c3d7cf36fa64769181619da57"
   integrity sha512-wCWyOFZ0wZ2xssmSldKOBw+uO4O4abjiZyW5PFwH+33uhvpwti0zwGchUactMuph2ojhq0C/RBO1pSWzCTFQpg==
 
-"@luvio/cli@0.83.0":
-  version "0.83.0"
-  resolved "https://registry.yarnpkg.com/@luvio/cli/-/cli-0.83.0.tgz#c5e7210de2e28d32df5ee218662e6c8ee92cdcda"
-  integrity sha512-t2jBGvv/rnDn8+0uCB6UEJ+J/oB1bA9uLXeoLcsNO/GZVJygLzwcSKFpAGIyZcrVUMJbu88223taUER4QBTDoA==
+"@luvio/cli@0.98.0":
+  version "0.98.0"
+  resolved "https://registry.yarnpkg.com/@luvio/cli/-/cli-0.98.0.tgz#3b3522dcc7e2601c2544d24cb40edf334e6e8507"
+  integrity sha512-S/Ln21Aqjyc1psToXWc2AI4qh1pCIIkLIk5NsyRmc/6Sg1hrKu45TjZ8/R3CNxo5RXrek3OGQKUBHXd+CPhxJw==
   dependencies:
-    "@luvio/compiler" "0.83.0"
+    "@luvio/compiler" "0.98.0"
     "@oclif/core" "^1.0.11"
     chalk "^4.0.0"
     strip-ansi "^6.0.0"
     text-table "^0.2.0"
 
-"@luvio/compiler@0.83.0":
-  version "0.83.0"
-  resolved "https://registry.yarnpkg.com/@luvio/compiler/-/compiler-0.83.0.tgz#35e16e0a7930feaafbba8c35e746dfc85a2de308"
-  integrity sha512-T4ll8SR3XietAZFeYk9dATmXb7r1OPOIS9mSjzQTI1K9bJsWdkcUgR8aa2qww7NBfYBGnACkhuCJqZ0FG2aGag==
+"@luvio/compiler@0.98.0":
+  version "0.98.0"
+  resolved "https://registry.yarnpkg.com/@luvio/compiler/-/compiler-0.98.0.tgz#4b48fabbf92c645f52b54ba96ef526da96df0ddd"
+  integrity sha512-AGgShXMCFnaP1GxlJsOJO9fl9eoT+vrYDSOoO/Ofkne1Ww7rkOFuzS1A3DqXlU7oWSYswxOSq2BCyzsiZ/QVIg==
   dependencies:
-    "@luvio/graphql-parser" "0.83.0"
+    "@luvio/graphql-parser" "0.98.0"
     amf-client-js "4.2.0"
 
-"@luvio/engine@0.83.0":
-  version "0.83.0"
-  resolved "https://registry.yarnpkg.com/@luvio/engine/-/engine-0.83.0.tgz#4f78e4280eaaac97a29e603854ed0336e15250e3"
-  integrity sha512-uruFmG0PMcquPGBHKM0MpypmJrxoX5+g4Tyx+rSxHQMbgMn/Gt0KXXuYzzl/FFzpICaCXgd50B0W9stIiPqTkg==
+"@luvio/engine@0.98.0":
+  version "0.98.0"
+  resolved "https://registry.yarnpkg.com/@luvio/engine/-/engine-0.98.0.tgz#e25fe89bdd754de9f5f528cebbef74b61eeed10a"
+  integrity sha512-clQf+puU0arYW5r1+mRa3Sb4pOUsfwRCdnD/2xhNVD27xVX7nLd5icDhEtVaHaqzmOt+e07xHJ2kDgwmvgcxVA==
 
-"@luvio/graphql-parser@0.83.0":
-  version "0.83.0"
-  resolved "https://registry.yarnpkg.com/@luvio/graphql-parser/-/graphql-parser-0.83.0.tgz#7df2b5378e41a8bbf0c527b0b0013a94d0bcbc18"
-  integrity sha512-HnCKvpRTWLXyFGtreyLCp9T3dqUfyKByhl18Z46BjTQBDPwTzeX8oYFaB4memGw8ci4w4aY1izKh62G6CwCvRg==
+"@luvio/graphql-parser@0.98.0":
+  version "0.98.0"
+  resolved "https://registry.yarnpkg.com/@luvio/graphql-parser/-/graphql-parser-0.98.0.tgz#8e6783c85a48e87a7c7490f63b4a3373dee5dd53"
+  integrity sha512-djSNkx5+Sr4UEbUHeSNi+LT0Y83fzknUEpcDVnQo+16uT2oPZMh8Kw6x8nIUW4zPpQN2kNBb/AguHIAmAJPzGQ==
   dependencies:
     graphql "^15.0.0"
 
-"@luvio/lwc-luvio@0.83.0":
-  version "0.83.0"
-  resolved "https://registry.yarnpkg.com/@luvio/lwc-luvio/-/lwc-luvio-0.83.0.tgz#04870fafa201372129e6fe9f98e8f04522141198"
-  integrity sha512-4GBgik8PDjn1PZNZb5xrpjL9DkEkKp3KYJ9ij4atXz8c0aCOAcJT+TDyyBEFU5U1Z5jIAply0fU7ULk3I87SpA==
+"@luvio/lwc-luvio@0.98.0":
+  version "0.98.0"
+  resolved "https://registry.yarnpkg.com/@luvio/lwc-luvio/-/lwc-luvio-0.98.0.tgz#f610933e8bbe65f95f15c11e305adcb73b4b8e9e"
+  integrity sha512-Zcecv+D2qEhUZHrjlQpN8aEXVeg2s/LxmixDgsEo1OU7YN0Nh2kQhDyYlkP8Y7sFbY1hUmfKiFKp13zZ6TXx/w==
   dependencies:
-    "@luvio/engine" "0.83.0"
+    "@luvio/engine" "0.98.0"
     "@lwc/engine-core" "2.11.3"
 
 "@lwc/babel-plugin-component@2.13.1":
