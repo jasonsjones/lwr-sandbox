@@ -27,7 +27,7 @@
         "@luvio/engine": "0.124.0",
         "@luvio/lwc-luvio": "0.124.0",
         "dotenv": "16.0.1",
-        "lwc": "2.20.0",
+        "lwc": "2.35.0",
         "lwr": "0.7.2",
         "passport": "0.6.0",
         "passport-forcedotcom": "0.1.5",
