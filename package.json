@@ -26,13 +26,13 @@
     "dependencies": {
         "@luvio/engine": "0.124.0",
         "@luvio/lwc-luvio": "0.124.0",
-        "dotenv": "16.0.1",
+        "dotenv": "16.0.3",
         "lwc": "2.35.0",
         "lwr": "0.8.8",
         "passport": "0.6.0",
-        "passport-forcedotcom": "0.1.5",
+        "passport-forcedotcom": "0.2.0",
         "passport-local": "1.0.0",
-        "uuid": "8.3.2"
+        "uuid": "9.0.0"
     },
     "devDependencies": {
         "@luvio/cli": "0.124.0",
