@@ -24,8 +24,8 @@
         "watch:server": "ts-node-dev --inspect --respawn --transpile-only src/server/index.ts"
     },
     "dependencies": {
-        "@luvio/engine": "0.98.0",
-        "@luvio/lwc-luvio": "0.98.0",
+        "@luvio/engine": "0.124.0",
+        "@luvio/lwc-luvio": "0.124.0",
         "dotenv": "16.0.1",
         "lwc": "2.20.0",
         "lwr": "0.7.2",
@@ -35,8 +35,8 @@
         "uuid": "8.3.2"
     },
     "devDependencies": {
-        "@luvio/cli": "0.98.0",
-        "@luvio/compiler": "0.98.0",
+        "@luvio/cli": "0.124.0",
+        "@luvio/compiler": "0.124.0",
         "@lwc/jest-preset": "11.4.0",
         "@types/jest": "28.1.4",
         "@types/mocha": "9.1.1",
