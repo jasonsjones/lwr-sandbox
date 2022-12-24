@@ -1,26 +1,16 @@
 import Express from 'express';
 import passport from 'passport';
 import * as AuthController from './authController';
+import * as AuthMiddleware from './authMiddleware';
 
 const router = Express.Router();
 
-router.get('/sfdc', passport.authenticate('forcedotcom'), () => {
-    // the request will be directed to salesforce for authentication, so this
-    // callback will not be called.
-});
-
-// Skip using passport-local strategy for now so we can have a bit more control over
-// the shape of the 401 response.  Using custom 'authenticate' middleware.
-
-// router.post('/login', passport.authenticate('local'), AuthController.login);
-router.post('/login', AuthController.authenticate, AuthController.login);
-router.get(
-    '/sfdc/callback',
-    passport.authenticate('forcedotcom', { session: false }),
-    AuthController.sfdcCallback
-);
-router.get('/me', AuthController.getMe);
-
+router.post('/login', AuthMiddleware.authenticateLocal, AuthController.loginLocal);
 router.post('/logout', AuthController.logout);
+
+router.get('/sfdc', AuthMiddleware.authenticateSfdc);
+router.get('/sfdc/callback', AuthMiddleware.authenticateSfdc, AuthController.loginSfdc);
+
+router.get('/me', AuthController.getMe);
 
 export default router;

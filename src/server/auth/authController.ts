@@ -1,9 +1,18 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { User } from '../user/types';
-import { getUserByEmail } from '../user/userService';
-import { logoutAuthenticatedUser, setAuthenticatedUser, verifyPassword } from './authService';
+import { logoutAuthenticatedUser } from './authService';
 
-export async function sfdcCallback(req: Request, res: Response) {
+export async function loginLocal(req: Request, res: Response) {
+    const { password, ...clientSideInfo } = req.user as User;
+
+    res.json({
+        success: true,
+        accessToken: 'jwt.token.here',
+        user: clientSideInfo
+    });
+}
+
+export async function loginSfdc(req: Request, res: Response) {
     console.log(`[Server] sfdc callback:`);
     console.log(req.user);
     res.redirect('/');
@@ -23,33 +32,6 @@ export async function logout(req: Request, res: Response) {
     res.json({
         success: true,
         accessToken: 'none',
-        user: null
-    });
-}
-
-export async function login(req: Request, res: Response) {
-    const { password, ...clientSideInfo } = req.user as User;
-    setAuthenticatedUser(req.user as User);
-
-    res.json({
-        success: true,
-        accessToken: 'jwt.token.here',
-        user: clientSideInfo
-    });
-}
-
-export async function authenticate(req: Request, res: Response, next: NextFunction) {
-    const { email, password } = req.body;
-    const user = await getUserByEmail(email);
-
-    if (user && verifyPassword(user, password)) {
-        req.user = user;
-        return next();
-    }
-
-    res.status(401).json({
-        success: false,
-        accessToken: null,
         user: null
     });
 }

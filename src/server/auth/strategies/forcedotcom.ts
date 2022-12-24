@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import passportForceDotCom from 'passport-forcedotcom';
 import { createUser, getUserBySfdcId } from '../../user/userService';
-import { setAuthenticatedUser } from '../authService';
 
 dotenv.config();
 const ForceDotComStrategy = passportForceDotCom.Strategy;
@@ -14,16 +13,17 @@ const strategyOptions = {
 };
 
 async function verifyCallback(token: any, _: any /* refreshToken */, profile: any, done: any) {
+    console.log(`[Server] Token params:`);
     console.log(token.params);
 
     const { _raw, ...profileInfo } = profile;
+    console.log(`[Server] SFDC profile info:`);
     console.log(profileInfo);
 
     const { id } = profile;
     const user = await getUserBySfdcId(id);
     if (user) {
         console.log(`[Server] user already exists...`);
-        setAuthenticatedUser(user);
         return done(null, user);
     }
     console.log(`[Server] user not found; creating new user...`);
@@ -33,7 +33,6 @@ async function verifyCallback(token: any, _: any /* refreshToken */, profile: an
         password: '',
         sfdcUserId: id
     });
-    setAuthenticatedUser(newUser);
     return done(null, newUser);
 }
 

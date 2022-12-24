@@ -14,9 +14,6 @@ const verifyCb: PassportLocal.VerifyFunction = async (
     password: string /* password */,
     done: (error: any, user?: User | boolean, options?: IVerifyOptions) => void
 ): Promise<void> => {
-    console.log({ email });
-    console.log({ password });
-
     const user = await getUserByEmail(email);
 
     if (!user) {
