@@ -53,6 +53,14 @@ export default class NavBar extends LightningElement {
 
     toggleMobileMenu(): void {
         this.isMobileMenuOpen = !this.isMobileMenuOpen;
+        const nav = this.template.querySelector('nav[data-id="mobile-menu"]');
+        if (this.isMobileMenuOpen) {
+            nav?.classList.remove('animate-slide-out-right');
+            nav?.classList.add('animate-slide-in-left');
+        } else {
+            nav?.classList.remove('animate-slide-in-left');
+            nav?.classList.add('animate-slide-out-right');
+        }
     }
 
     async handleLogout() {
