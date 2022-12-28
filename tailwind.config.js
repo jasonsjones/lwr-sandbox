@@ -1,8 +1,13 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
     content: ['./src/modules/**/*.html', './src/modules/**/*.ts'],
     darkMode: 'media', // or 'media' or 'class'
     theme: {
         extend: {
+            colors: {
+                primary: colors.slate
+            },
             keyframes: {
                 'slide-left': {
                     '0%': {

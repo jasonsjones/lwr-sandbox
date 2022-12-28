@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --octo-cat-fill: #4338ca;
-    --octo-cat-color: #fff;
-}
+@layer base {
+    :root {
+        --octo-cat-fill: #4338ca;
+        --octo-cat-color: #fff;
+    }
 
-.octo-cat {
-    fill: var(--octo-cat-fill);
-    color: var(--octo-cat-color);
+    .octo-cat {
+        fill: var(--octo-cat-fill);
+        color: var(--octo-cat-color);
+    }
 }

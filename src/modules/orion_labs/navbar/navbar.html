@@ -1,11 +1,11 @@
 <template>
-    <header class="px-8 py-4 bg-indigo-900 text-gray-200">
+    <header class="px-8 py-4 bg-primary-900 text-gray-200">
         <nav class="flex">
             <orion_labs-link navigate-to={homePage}>
                 <div class="flex flex-col items-end cursor-pointer">
                     <div class="text-3xl font-bold uppercase hover:text-white">Orion</div>
                     <div
-                        class="-mr-2 px-2 text-lg text-white font-semibold bg-indigo-400 rounded-full"
+                        class="-mr-2 px-2 text-lg text-white font-semibold bg-primary-400 rounded-full"
                     >
                         labs
                     </div>
@@ -24,7 +24,7 @@
                     <!-- Logout button -->
                     <button
                         if:true={isAuthenticated}
-                        class="p-2 border-2 border-indigo-500 rounded-md hover:bg-indigo-800"
+                        class="p-2 border-2 border-primary-500 rounded-md hover:bg-primary-800"
                         onclick={handleLogout}
                     >
                         Logout
@@ -90,7 +90,7 @@
 
         <!-- Mobile drop down menu -->
         <nav
-            class="md:hidden w-80 flex flex-col items-end mt-8 mb-4 gap-y-4 absolute bg-indigo-900 top-12 right-[-320px] z-10 p-8 rounded-md h-screen"
+            class="md:hidden w-80 flex flex-col items-end mt-8 mb-4 gap-y-4 absolute bg-primary-900 top-12 right-[-320px] z-10 p-8 rounded-md h-screen"
             data-id="mobile-menu"
         >
             <orion_labs-nav-link navigate-to={aboutPage}>About</orion_labs-nav-link>
@@ -102,7 +102,7 @@
             <!-- Logout button -->
             <button
                 if:true={isAuthenticated}
-                class="p-2 border-2 border-indigo-500 rounded-md hover:bg-indigo-800"
+                class="p-2 border-2 border-primary-500 rounded-md hover:bg-primary-800"
                 onclick={handleLogout}
             >
                 Logout
