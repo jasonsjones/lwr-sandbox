@@ -22,6 +22,9 @@ export default class NamedPageHander implements RouteHandler {
             case 'users':
                 viewGetter = () => import('orion_labs/userList');
                 break;
+            case 'register':
+                viewGetter = () => import('orion_labs/register');
+                break;
             default:
                 return;
         }

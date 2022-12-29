@@ -56,6 +56,7 @@
             ],
             "orion_labs/navbar": ["src/modules/orion_labs/navbar/navbar.ts"],
             "orion_labs/navLink": ["src/modules/orion_labs/navLink/navLink.ts"],
+            "orion_labs/register": ["src/modules/orion_labs/register/register.ts"],
             "orion_labs/userAddForm": ["src/modules/orion_labs/userAddForm/userAddForm.ts"],
             "orion_labs/userApi": ["src/modules/orion_labs/userApi/userApi.ts"],
             "orion_labs/userDetails": ["src/modules/orion_labs/userDetails/userDetails.ts"],
