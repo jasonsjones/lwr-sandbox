@@ -17,10 +17,10 @@
 
                 <div class="flex flex-1 justify-end items-center gap-x-8">
                     <template if:false={isAuthenticated}>
-                        <orion_labs-nav-link navigate-to={loginPage}>Login</orion_labs-nav-link>
                         <orion_labs-nav-link navigate-to={registerPage}
                             >Sign up</orion_labs-nav-link
                         >
+                        <orion_labs-nav-link navigate-to={loginPage}>Login</orion_labs-nav-link>
                     </template>
 
                     <p if:true={isAuthenticated}>{user.name}</p>
