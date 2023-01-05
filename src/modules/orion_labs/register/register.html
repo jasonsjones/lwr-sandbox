@@ -1,5 +1,56 @@
 <template>
     <div class="w-2/3 mx-auto flex flex-col items-center">
         <h1 class="text-3xl font-bold text-slate-700 mt-8 mb-4">Register for Account</h1>
+        <div class="md:w-1/2 mt-4">
+            <form class="border-2 border-slate-300 rounded-md p-8" onsubmit={handleSubmit}>
+                <orion-input
+                    class="block mt-8"
+                    type="text"
+                    label="First Name"
+                    input-id="firstName"
+                    data-id="firstName"
+                ></orion-input>
+                <orion-input
+                    class="block mt-8"
+                    type="text"
+                    label="Last Name"
+                    input-id="lastName"
+                    data-id="lastName"
+                ></orion-input>
+                <orion-input
+                    class="block mt-8"
+                    type="email"
+                    label="Email"
+                    input-id="email"
+                    data-id="email"
+                ></orion-input>
+                <orion-input
+                    class="block mt-8"
+                    type="password"
+                    label="Password"
+                    input-id="password"
+                    data-id="password"
+                ></orion-input>
+                <orion-input
+                    class="block mt-8"
+                    type="password"
+                    label="Confirm Password"
+                    input-id="confirmPassword"
+                    data-id="confirmPassword"
+                ></orion-input>
+                <div class="flex justify-end gap-x-4">
+                    <button
+                        type="submit"
+                        class="mt-8 grow py-3 bg-primary-700 text-gray-200 rounded-md hover:bg-primary-900"
+                    >
+                        Register
+                    </button>
+                </div>
+            </form>
+
+            <orion-alert>
+                <p slot="message" class="font-medium">User registration is a beta feature.</p>
+            </orion-alert>
+        </div>
     </div>
 </template>

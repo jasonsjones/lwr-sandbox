@@ -34,6 +34,7 @@
                 "node_modules/@lwrjs/router/build/modules/lwr/navigation/navigation.d.ts"
             ],
             "orion/adapters": ["src/modules/orion/adapters/adapters.ts"],
+            "orion/alert": ["src/modules/orion/alert/alert.ts"],
             "orion/eventEmitter": ["src/modules/orion/eventEmitter/eventEmitter.ts"],
             "orion_labs/about": ["src/modules/orion_labs/about/about.ts"],
             "orion_labs/aboutPageHandler": [
