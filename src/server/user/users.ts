@@ -9,25 +9,29 @@ const password = '123456';
 export const users: User[] = [
     {
         id: v4(),
-        name: 'Ed Baldwin',
+        firstName: 'Ed',
+        lastName: 'Baldwin',
         email: 'ed@nasa.gov',
         password: process.env.DEFAULT_PASSWORD || password
     },
     {
         id: v4(),
-        name: 'James Gordon',
+        firstName: 'James',
+        lastName: 'Gordon',
         email: 'james@gotham.gov',
         password: process.env.DEFAULT_PASSWORD || password
     },
     {
         id: v4(),
-        name: 'Joe West',
+        firstName: 'Joe',
+        lastName: 'West',
         email: 'joe@centralcity.gov',
         password: process.env.DEFAULT_PASSWORD || password
     },
     {
         id: v4(),
-        name: 'William Riker',
+        firstName: 'William',
+        lastName: 'Riker',
         email: 'xo@ncc1701d.mil',
         password: process.env.DEFAULT_PASSWORD || password
     }

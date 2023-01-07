@@ -1,10 +1,9 @@
 import { Request, Response } from 'express';
-import { User } from './types';
 import * as UserService from './userService';
 
 export async function createUser(req: Request, res: Response) {
-    const { name, email, password } = req.body;
-    const newUser = await UserService.createUser({ name, email, password });
+    const { firstName, lastName, email, password } = req.body;
+    const newUser = await UserService.createUser({ firstName, lastName, email, password });
     const sanitizedUser = UserService.sanitizeUser(newUser);
 
     res.status(201).json(sanitizedUser);

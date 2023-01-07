@@ -5,7 +5,8 @@ import { users } from './users';
 export async function createUser(userData: CreateUserDTO): Promise<User> {
     const newUser: User = {
         id: v4(),
-        name: userData.name,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
         email: userData.email,
         password: process.env.DEFAULT_PASSWORD || 'password', // WARNING: don't do this! Need to hash the password
         sfdcUserId: userData.sfdcUserId
