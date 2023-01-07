@@ -6,3 +6,4 @@ pageObjects
 build
 tailwind.css
 **/generated
+prisma/*.db*
