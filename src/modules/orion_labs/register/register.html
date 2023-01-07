@@ -48,6 +48,16 @@
                 </div>
             </form>
 
+            <!-- Refactor orion-alert to handle error/danger messages -->
+            <div
+                if:true={hasError}
+                class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4"
+                role="alert"
+            >
+                <p class="font-bold">Error</p>
+                <p class="align-center">{error}</p>
+            </div>
+
             <orion-alert>
                 <p slot="message" class="font-medium">User registration is a beta feature.</p>
             </orion-alert>
