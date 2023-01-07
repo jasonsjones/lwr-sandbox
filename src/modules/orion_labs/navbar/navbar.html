@@ -23,7 +23,7 @@
                         <orion_labs-nav-link navigate-to={loginPage}>Login</orion_labs-nav-link>
                     </template>
 
-                    <p if:true={isAuthenticated}>{user.name}</p>
+                    <p if:true={isAuthenticated}>{displayName}</p>
                     <!-- Logout button -->
                     <button
                         if:true={isAuthenticated}

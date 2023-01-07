@@ -28,6 +28,6 @@ export default class UserDetails extends LightningElement {
     }
 
     get name(): string {
-        return this.user ? this.user.name : 'User Unknown';
+        return this.user ? `${this.user.firstName} ${this.user.lastName}` : 'User Unknown';
     }
 }

@@ -55,6 +55,13 @@ export default class NavBar extends LightningElement {
         return this._user;
     }
 
+    get displayName(): string {
+        if (this._user) {
+            return `${this._user.firstName} ${this._user.lastName}`;
+        }
+        return '';
+    }
+
     toggleMobileMenu(): void {
         this.isMobileMenuOpen = !this.isMobileMenuOpen;
         const nav = this.template.querySelector('nav[data-id="mobile-menu"]');

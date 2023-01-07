@@ -24,6 +24,7 @@ export default class UserList extends LightningElement {
         return (this._users || []).map((user) => {
             return {
                 ...user,
+                displayName: `${user.firstName} ${user.lastName}`,
                 pageRef: {
                     type: 'user_detail',
                     attributes: {
@@ -48,6 +49,7 @@ export default class UserList extends LightningElement {
 
     async handleAddUser(event: CustomEvent): Promise<void> {
         event.stopPropagation();
+        /*
         const { name } = event.detail;
         if (name) {
             const response = await createUser({ name });
@@ -56,5 +58,6 @@ export default class UserList extends LightningElement {
                 this._users = [...this._users, newUser];
             }
         }
+        */
     }
 }

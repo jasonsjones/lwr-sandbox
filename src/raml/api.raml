@@ -34,7 +34,9 @@ types:
         type: object
         properties:
             id: string
-            name: string
+            firstName: string
+            lastName: string
+            email: string
     UserList:
         type: object
         properties:
@@ -42,7 +44,13 @@ types:
     UserInput:
         type: object
         properties:
-            name:
+            firstName:
+                type: string
+                required: true
+            lastname:
+                type: string
+                required: true
+            email:
                 type: string
                 required: true
 
