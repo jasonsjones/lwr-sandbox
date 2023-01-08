@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import prisma from '../db/client';
-import { User, Prisma } from '@prisma/client';
+import { User, Password, Prisma } from '@prisma/client';
 
 export async function createUser(userData: Prisma.UserCreateInput): Promise<User> {
     const { password } = userData;
@@ -24,6 +24,12 @@ export async function getUserByEmail(email: string): Promise<User | null> {
 
 export async function getUserBySfdcId(id: string): Promise<User | null> {
     return await prisma.user.findFirst({ where: { sfdcUserId: id } });
+}
+
+export async function getUserByEmailIncludePassword(
+    email: string
+): Promise<(User & { password: Password | null }) | null> {
+    return await prisma.user.findUnique({ where: { email }, include: { password: true } });
 }
 
 async function createUserWithPassword(userData: Prisma.UserCreateInput): Promise<User> {

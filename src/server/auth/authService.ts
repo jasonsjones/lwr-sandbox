@@ -1,4 +1,5 @@
-import { User } from '../user/types';
+import bcrypt from 'bcryptjs';
+import { User, Password } from '@prisma/client';
 
 // Temp reference to the (single) authenticated user until
 // jwt authentication is implemented via the jwt strategy.
@@ -16,6 +17,12 @@ export function logoutAuthenticatedUser(): void {
     authenticatedUser = undefined;
 }
 
-export function verifyPassword(user: User, password: string): boolean {
-    return user.password === password;
+export function verifyPassword(
+    user: User & { password: Password | null },
+    password: string
+): boolean {
+    if (user.password) {
+        return bcrypt.compareSync(password, user.password.hash);
+    }
+    return false;
 }
