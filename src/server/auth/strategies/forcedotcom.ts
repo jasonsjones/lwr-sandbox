@@ -31,7 +31,6 @@ async function verifyCallback(token: any, _: any /* refreshToken */, profile: an
         firstName: profile.name.givenName,
         lastName: profile.name.familyName,
         email: profile.emails[0].value,
-        password: '',
         sfdcUserId: id
     });
     return done(null, newUser);

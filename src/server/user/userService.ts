@@ -1,42 +1,50 @@
-import { v4 } from 'uuid';
-import { CreateUserDTO, User } from './types';
-import { users } from './users';
+import bcrypt from 'bcryptjs';
+import prisma from '../db/client';
+import { User, Prisma } from '@prisma/client';
 
-export async function createUser(userData: CreateUserDTO): Promise<User> {
-    const newUser: User = {
-        id: v4(),
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        email: userData.email,
-        password: process.env.DEFAULT_PASSWORD || 'password', // WARNING: don't do this! Need to hash the password
-        sfdcUserId: userData.sfdcUserId
-    };
-    users.push(newUser);
-    return Promise.resolve(newUser);
+export async function createUser(userData: Prisma.UserCreateInput): Promise<User> {
+    const { password } = userData;
+    if (password) {
+        return createUserWithPassword(userData);
+    }
+    return createUserWithoutPassword(userData);
 }
 
 export async function getUsers(): Promise<User[]> {
-    return Promise.resolve(users);
+    return await prisma.user.findMany();
 }
 
-export async function getUserById(id: string): Promise<User | undefined> {
-    const user = users.find((user) => user.id === id);
-    return Promise.resolve(user);
+export async function getUserById(id: string): Promise<User | null> {
+    return await prisma.user.findUnique({ where: { id } });
 }
 
-export async function getUserByEmail(email: string): Promise<User | undefined> {
-    const user = users.find((user) => user.email === email);
-    return Promise.resolve(user);
+export async function getUserByEmail(email: string): Promise<User | null> {
+    return await prisma.user.findUnique({ where: { email } });
 }
 
-export async function getUserBySfdcId(id: string): Promise<User | undefined> {
-    const user = users.find((user) => user.sfdcUserId === id);
-    return Promise.resolve(user);
+export async function getUserBySfdcId(id: string): Promise<User | null> {
+    return await prisma.user.findFirst({ where: { sfdcUserId: id } });
 }
 
-export function sanitizeUser(user: User) {
-    const { password, ...clientSideInfo } = user;
-    return {
-        ...clientSideInfo
-    };
+async function createUserWithPassword(userData: Prisma.UserCreateInput): Promise<User> {
+    const hashedPassword = await bcrypt.hash(userData.password as string, 12);
+
+    const user = await prisma.user.create({
+        data: {
+            ...userData,
+            password: {
+                create: {
+                    hash: hashedPassword
+                }
+            }
+        }
+    });
+    return user;
+}
+
+async function createUserWithoutPassword(userData: Prisma.UserCreateInput): Promise<User> {
+    const user = await prisma.user.create({
+        data: userData
+    });
+    return user;
 }
