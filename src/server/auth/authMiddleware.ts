@@ -3,7 +3,7 @@ import passport from 'passport';
 import { setAuthenticatedUser } from './authService';
 
 export async function authenticateLocal(req: Request, res: Response, next: NextFunction) {
-    return passport.authenticate('local', { session: false }, (err, user, info) => {
+    return passport.authenticate('local', { session: false }, (err, user) => {
         if (err) {
             return next(err);
         }
@@ -22,7 +22,7 @@ export async function authenticateLocal(req: Request, res: Response, next: NextF
 }
 
 export async function authenticateSfdc(req: Request, res: Response, next: NextFunction) {
-    return passport.authenticate('forcedotcom', { session: false }, (err, user, info) => {
+    return passport.authenticate('forcedotcom', { session: false }, (err, user) => {
         if (err) {
             return next(err);
         }

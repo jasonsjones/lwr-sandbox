@@ -1,14 +1,12 @@
 import { Request, Response } from 'express';
-import { User } from '../user/types';
 import { logoutAuthenticatedUser } from './authService';
 
 export async function loginLocal(req: Request, res: Response) {
-    const { password, ...clientSideInfo } = req.user as User;
-
+    const user = req.user;
     res.json({
         success: true,
         accessToken: 'jwt.token.here',
-        user: clientSideInfo
+        user
     });
 }
 

@@ -1,5 +1,4 @@
 import Express from 'express';
-import passport from 'passport';
 import * as AuthController from './authController';
 import * as AuthMiddleware from './authMiddleware';
 

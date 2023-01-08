@@ -21,7 +21,9 @@ const verifyCb: PassportLocal.VerifyFunction = async (
     }
 
     if (user.password && verifyPassword(user, password)) {
-        return done(null, user);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { password, ...sanitizedUserInfo } = user;
+        return done(null, sanitizedUserInfo);
     }
 
     return done(null, false, { message: 'Invalid email/password' });

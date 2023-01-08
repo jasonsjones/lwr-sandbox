@@ -27,7 +27,7 @@ export default class Home extends LightningElement {
         unregisterListener('logout', this.handleLogoutEvent, this);
     }
 
-    handleLogoutEvent(data: any) {
+    handleLogoutEvent() {
         this.user = null;
     }
 }
