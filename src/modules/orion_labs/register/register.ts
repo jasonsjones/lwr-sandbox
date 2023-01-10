@@ -1,6 +1,6 @@
 import { LightningElement, track, wire } from 'lwc';
 import { navigate, NavigationContext } from 'lwr/navigation';
-// import { createUser } from 'orion_labs/userApi';
+import { createUser } from 'orion_labs/userApi';
 import type { ContextId } from 'lwr/navigation';
 
 export default class Register extends LightningElement {
@@ -13,28 +13,28 @@ export default class Register extends LightningElement {
         event.preventDefault();
         if (this.validateForm()) {
             // make POST to register user
-            this.clearForm();
-            navigate(this.navContext, {
-                type: 'home'
+            const response = await createUser({
+                firstName: this.formValues.firstName,
+                lastName: this.formValues.lastName,
+                email: this.formValues.email,
+                password: this.formValues.password
             });
-        }
 
-        /*
-        const response = await createUser({
-            name: `${this.formValues.firstName} ${this.formValues.lastName}`
-        });
-
-        if (response) {
-            console.log(response);
+            if (response) {
+                this.clearForm();
+                navigate(this.navContext, {
+                    type: 'home'
+                });
+            }
         }
-        */
     }
 
     get formValues() {
-        const firstName = this.getFieldValue('firstName');
-        const lastName = this.getFieldValue('lastName');
-        const email = this.getFieldValue('email');
-        const password = this.getFieldValue('password');
+        const firstName = this.getFieldValue('firstName') || '';
+        const lastName = this.getFieldValue('lastName') || '';
+        const email = this.getFieldValue('email') || '';
+        const password = this.getFieldValue('password') || '';
+
         const confirmPassword = this.getFieldValue('confirmPassword');
 
         return {
