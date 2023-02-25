@@ -1,13 +1,15 @@
-import Express, { Request, Response, NextFunction } from 'express';
+import cookieParser from 'cookie-parser';
+import Express, { NextFunction, Request, Response } from 'express';
 import passport from 'passport';
-import authRouter from './auth/authRouter';
 import userRouter from './/user/userRouter';
+import authRouter from './auth/authRouter';
 import { getAuthenticatedUser } from './auth/authService';
 import { configurePassport } from './config/passport';
 
 export default function (app: Express.Application): void {
     app.use(Express.json({}));
     app.use(Express.urlencoded({ extended: false }));
+    app.use(cookieParser());
     app.use(passport.initialize());
 
     configurePassport(passport);

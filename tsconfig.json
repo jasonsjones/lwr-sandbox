@@ -36,6 +36,7 @@
             "orion/adapters": ["src/modules/orion/adapters/adapters.ts"],
             "orion/alert": ["src/modules/orion/alert/alert.ts"],
             "orion/eventEmitter": ["src/modules/orion/eventEmitter/eventEmitter.ts"],
+            "orion/tokenManager": ["src/modules/orion/tokenManager/tokenManager.ts"],
             "orion_labs/about": ["src/modules/orion_labs/about/about.ts"],
             "orion_labs/aboutPageHandler": [
                 "src/modules/orion_labs/aboutPageHandler/aboutPageHandler.ts"

@@ -10,6 +10,6 @@ router.post('/logout', AuthController.logout);
 router.get('/sfdc', AuthMiddleware.authenticateSfdc);
 router.get('/sfdc/callback', AuthMiddleware.authenticateSfdc, AuthController.loginSfdc);
 
-router.get('/me', AuthController.getMe);
+router.get('/me', AuthMiddleware.verifyToken, AuthController.getMe);
 
 export default router;
