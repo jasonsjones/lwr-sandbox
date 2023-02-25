@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import { User, Password } from '@prisma/client';
 
 // Temp reference to the (single) authenticated user until
@@ -25,4 +26,14 @@ export function verifyPassword(
         return bcrypt.compareSync(password, user.password.hash);
     }
     return false;
+}
+
+export function generateRefreshToken(user: Partial<User>): string {
+    const payload = { sub: user.id, email: user.email };
+    return jwt.sign(payload, 'refreshSecret', { expiresIn: '14d' });
+}
+
+export function generateAccessToken(user: Partial<User>): string {
+    const payload = { sub: user.id, email: user.email };
+    return jwt.sign(payload, 'secret', { expiresIn: '10m' });
 }
