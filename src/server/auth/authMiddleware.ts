@@ -1,9 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import passport from 'passport';
+import { User } from '@prisma/client';
 import { setAuthenticatedUser } from './authService';
 
 export async function authenticateLocal(req: Request, res: Response, next: NextFunction) {
-    return passport.authenticate('local', { session: false }, (err, user) => {
+    return passport.authenticate('local', { session: false }, (err: any, user: User) => {
         if (err) {
             return next(err);
         }
@@ -22,7 +23,7 @@ export async function authenticateLocal(req: Request, res: Response, next: NextF
 }
 
 export async function authenticateSfdc(req: Request, res: Response, next: NextFunction) {
-    return passport.authenticate('forcedotcom', { session: false }, (err, user) => {
+    return passport.authenticate('forcedotcom', { session: false }, (err: any, user: User) => {
         if (err) {
             return next(err);
         }
