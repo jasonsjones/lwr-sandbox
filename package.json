@@ -4,7 +4,7 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "build": "yarn build:css && yarn generate:adapters && yarn build:utam && tsc --build",
+        "build": "yarn build:css && yarn generate:adapters && yarn build:utam",
         "build:css": "tailwindcss -i src/styles/styles.css -o src/assets/styles/tailwind.css",
         "build:utam": "utam -c utam.config.js",
         "clean": "yarn clean:adapters && yarn clean:css && yarn clean:utam && rm -rf build",
@@ -24,8 +24,8 @@
         "watch:server": "ts-node-dev --inspect --respawn --transpile-only src/server/index.ts"
     },
     "dependencies": {
-        "@luvio/engine": "0.133.0",
-        "@luvio/lwc-luvio": "0.133.0",
+        "@luvio/engine": "0.138.0",
+        "@luvio/lwc-luvio": "0.138.0",
         "@prisma/client": "4.14.0",
         "bcryptjs": "2.4.3",
         "cookie-parser": "1.4.6",
@@ -40,8 +40,8 @@
         "uuid": "9.0.0"
     },
     "devDependencies": {
-        "@luvio/cli": "0.133.0",
-        "@luvio/compiler": "0.133.0",
+        "@luvio/cli": "0.138.0",
+        "@luvio/compiler": "0.138.0",
         "@lwc/jest-preset": "11.8.0",
         "@types/bcryptjs": "2.4.2",
         "@types/cookie-parser": "1.4.3",

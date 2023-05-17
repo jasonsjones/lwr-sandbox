@@ -2366,43 +2366,56 @@
     "@locker/shared-dom" "0.18.14"
     "@locker/shared-url" "0.18.14"
 
-"@luvio/cli@0.133.0":
-  version "0.133.0"
-  resolved "https://registry.yarnpkg.com/@luvio/cli/-/cli-0.133.0.tgz#7981dfe110b9d5a4e0a88ea5aea2ebc0e97dd692"
-  integrity sha512-GcENczW0uYzHXi3Ro9R23S9hs9SjIFdwm1QltipxVIqGWcsFDRS0/sQ5rjbBd3J3SK8CZIXJ5yI2EjplmSxxlw==
+"@luvio/cli@0.138.0":
+  version "0.138.0"
+  resolved "https://registry.yarnpkg.com/@luvio/cli/-/cli-0.138.0.tgz#9cd984ff046ecf5a41c7035b9e1a8ad8af0160d1"
+  integrity sha512-jHnWHDu0qHAWSow/wYyrI++yjTLIgXufV6AaUQf8B46eZwT6Nt06+tueCu7YBOgAzNWPoS6nORT0MJ8pANBIpQ==
   dependencies:
-    "@luvio/compiler" "0.133.0"
+    "@luvio/compiler" "^0.138.0"
     "@oclif/core" "^1.0.11"
     chalk "^4.0.0"
     strip-ansi "^6.0.0"
     text-table "^0.2.0"
 
-"@luvio/compiler@0.133.0":
-  version "0.133.0"
-  resolved "https://registry.yarnpkg.com/@luvio/compiler/-/compiler-0.133.0.tgz#7300771b9eeebdc892038d6ffde2f02b0d3c5034"
-  integrity sha512-WDkfxKzw95/yFnJDN4yPDSwm39Uw++x9AcJnFAAg5k4sn5sOBz0MpVq+1R31GxcpP9LqdY91ynQrRNBdCL8vqQ==
+"@luvio/compiler@0.138.0":
+  version "0.138.0"
+  resolved "https://registry.yarnpkg.com/@luvio/compiler/-/compiler-0.138.0.tgz#7a4d0150e0fa45595ca0bc42751e7283c0ce3392"
+  integrity sha512-YQh4QolrUXn8a0CyPNpP0Qqb5zVjZM523YOM/i7Ug96xm3cTqTBii95CLxzMKcejmBm4Uou9ARZ/TbOP6u9MDw==
   dependencies:
-    "@luvio/graphql-parser" "0.133.0"
+    "@luvio/graphql-parser" "^0.138.0"
     amf-client-js "4.2.0"
 
-"@luvio/engine@0.133.0":
-  version "0.133.0"
-  resolved "https://registry.yarnpkg.com/@luvio/engine/-/engine-0.133.0.tgz#9467eb35437dac1966cd0aa3063b33d82b26b226"
-  integrity sha512-6eujYUuSthVTrENpDxmRGEpzHljdw8Vdnc/Xc7bMNIAnUKNhgD/S+DgSBkTiSNYJEmVy0n4L5cw8HBMkb+pIYw==
+"@luvio/compiler@^0.138.0":
+  version "0.138.14"
+  resolved "https://registry.yarnpkg.com/@luvio/compiler/-/compiler-0.138.14.tgz#35d5f2683fa6a3880d6accb46c8549fa427fb487"
+  integrity sha512-5YeT81QNUy8fOB/y2YFNn6BEumBAEmv4KNuPuitc9VlEduPuTuPNvxmqhdMLq0jLmm9W/mAL3HGYvx0HtnKTqQ==
+  dependencies:
+    "@luvio/graphql-parser" "^0.138.14"
+    amf-client-js "4.2.0"
 
-"@luvio/graphql-parser@0.133.0":
-  version "0.133.0"
-  resolved "https://registry.yarnpkg.com/@luvio/graphql-parser/-/graphql-parser-0.133.0.tgz#5cf407569a2ffe32d586230f3d72145a6c35185b"
-  integrity sha512-lobzEovi/i33chHqxG8ZBgHdtZMhablaFZgI36Z8RcA+NGKKdw0RtSn9tKutpgZhQf8ip9UN5k4j88NAEZ6V2w==
+"@luvio/engine@0.138.0":
+  version "0.138.0"
+  resolved "https://registry.yarnpkg.com/@luvio/engine/-/engine-0.138.0.tgz#8db790c23102eb4cf337cec0b44d9dbaad9a2d1c"
+  integrity sha512-Y3X8cWioSVlVpTQbtI/GP0WTR6XgdJg0i1pTZ4RI81MMfuCcd+Q9wR/0uCbDLu8oxxOl35FMKkLthzQ8IT1cyQ==
+
+"@luvio/engine@^0.138.0":
+  version "0.138.14"
+  resolved "https://registry.yarnpkg.com/@luvio/engine/-/engine-0.138.14.tgz#6c014d56b25f653103b01eb58c13983969ccb0b6"
+  integrity sha512-dIuI/dTUNGXZuytUa6yi+7Nf3JK4Ku9dhEEanKzvHw9slsJzE0J9XtBW2k/+tI6egDeMUejKpgW5BAJdg2igLA==
+
+"@luvio/graphql-parser@^0.138.0", "@luvio/graphql-parser@^0.138.14":
+  version "0.138.14"
+  resolved "https://registry.yarnpkg.com/@luvio/graphql-parser/-/graphql-parser-0.138.14.tgz#26fcd105eceb7cfcfb7dacc6e69ee34f4ac2ca45"
+  integrity sha512-xAxgAHdjWhm3Xm/XNMRBlkBWBIaz+C+sOZrDF7gpe4gjTr3+cLiAovotxXhJQNGHpZMLk1C1cH8mIZmPAZbUYA==
   dependencies:
     graphql "^15.0.0"
 
-"@luvio/lwc-luvio@0.133.0":
-  version "0.133.0"
-  resolved "https://registry.yarnpkg.com/@luvio/lwc-luvio/-/lwc-luvio-0.133.0.tgz#c9040c96fe575fbe55c8b5d6572ac34c82dbaaa6"
-  integrity sha512-UgXViQjkLEiUBd2g+PHsCYnDZ0WbzsSfvL5XDtJPpvW+fvDrou23Wp+0ZGer3DI8fCJrv2XvQln3lsrx1bWHZA==
+"@luvio/lwc-luvio@0.138.0":
+  version "0.138.0"
+  resolved "https://registry.yarnpkg.com/@luvio/lwc-luvio/-/lwc-luvio-0.138.0.tgz#8df4202527606e2720b120e321405886c176b7e7"
+  integrity sha512-cqJE/XZmDKrR1Jw7CqiZAnaTJF7ohNkJ5DrV+ZmwI46WqnVqqzy1sPvGOnSZIHUisIWoaaqjuQiVclZhBAGQHw==
   dependencies:
-    "@luvio/engine" "0.133.0"
+    "@luvio/engine" "^0.138.0"
     "@lwc/engine-core" "2.11.3"
 
 "@lwc/babel-plugin-component@2.45.2":
