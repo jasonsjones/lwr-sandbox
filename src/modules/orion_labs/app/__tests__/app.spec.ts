@@ -1,6 +1,5 @@
-// @ts-expect-error get createElement from lwc for tests
 import { createElement } from 'lwc';
-import App from '../app';
+import App from 'orion_labs/app';
 
 global.fetch = jest.fn(() =>
     Promise.resolve({

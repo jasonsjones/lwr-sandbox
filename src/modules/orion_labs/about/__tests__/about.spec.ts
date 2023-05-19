@@ -1,6 +1,5 @@
-// @ts-expect-error get createElement from lwc for tests
 import { createElement } from 'lwc';
-import About from '../about';
+import About from 'orion_labs/about';
 
 describe('About component', () => {
     afterEach(() => {

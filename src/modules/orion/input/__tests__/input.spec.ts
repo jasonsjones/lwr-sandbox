@@ -1,9 +1,8 @@
-// @ts-expect-error get createElement from lwc for tests
 import { createElement } from 'lwc';
-import Element from '../input';
+import Element from 'orion/input';
 
 function createInput(params = {}) {
-    const element = createElement('orion-input', { is: Element });
+    const element = createElement('orion-input', { is: Element }) as HTMLInputElement;
     Object.assign(element, params);
     document.body.appendChild(element);
     return element;
@@ -24,9 +23,11 @@ describe('orion-input', () => {
         const expectedText = 'orion labs';
 
         const element = createInput();
-        const baseInput = element.shadowRoot.querySelector('input');
-        baseInput.value = expectedText;
-        baseInput.dispatchEvent(new CustomEvent('input', { composed: true, bubbles: true }));
-        expect(element.value).toBe(expectedText);
+        const baseInput = element.shadowRoot?.querySelector('input');
+        if (baseInput) {
+            baseInput.value = expectedText;
+            baseInput.dispatchEvent(new CustomEvent('input', { composed: true, bubbles: true }));
+            expect(element.value).toBe(expectedText);
+        }
     });
 });

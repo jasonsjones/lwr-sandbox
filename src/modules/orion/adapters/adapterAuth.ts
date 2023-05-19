@@ -1,4 +1,3 @@
-import { Adapter } from '@luvio/engine';
 import { createWireAdapterConstructor } from '@luvio/lwc-luvio';
 import { getContextUserAdapterFactory } from './generated/adapters/getContextUser';
 import { loginAdapterFactory } from './generated/adapters/login';
@@ -8,10 +7,11 @@ import { luvio } from './network';
 const getContextUserLuvioAdapter = getContextUserAdapterFactory(luvio);
 
 const GetContextUserWireAdapter = createWireAdapterConstructor(
-    getContextUserLuvioAdapter as Adapter<unknown, unknown>, // not sure how to fix type mis-match
+    getContextUserLuvioAdapter,
     'getContextUser',
     luvio
 );
+
 const login = loginAdapterFactory(luvio);
 const logout = logoutAdapterFactory(luvio);
 

@@ -27,7 +27,7 @@
         "module": "commonjs" /* Specify what module code is generated. */,
         "rootDir": "." /* Specify the root folder within your source files. */,
         "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
-        "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
+        "baseUrl": "." /* Specify the base directory to resolve non-relative module names. */,
         "paths": {
             "lwr/router": ["node_modules/@lwrjs/router/build/modules/lwr/router/router.d.ts"],
             "lwr/navigation": [
@@ -36,6 +36,7 @@
             "orion/adapters": ["src/modules/orion/adapters/adapters.ts"],
             "orion/alert": ["src/modules/orion/alert/alert.ts"],
             "orion/eventEmitter": ["src/modules/orion/eventEmitter/eventEmitter.ts"],
+            "orion/input": ["src/modules/orion/input/input.ts"],
             "orion/tokenManager": ["src/modules/orion/tokenManager/tokenManager.ts"],
             "orion_labs/about": ["src/modules/orion_labs/about/about.ts"],
             "orion_labs/aboutPageHandler": [
@@ -75,7 +76,7 @@
             "./pageObjects"
         ] /* Specify multiple folders that act like `./node_modules/@types`. */,
         "types": [
-            "jest",
+            "@types/jest",
             "node",
             "webdriverio/async",
             "@wdio/mocha-framework",
@@ -146,5 +147,5 @@
         // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
         "skipLibCheck": true /* Skip type checking all .d.ts files. */
     },
-    "exclude": ["node_modules/**", "build", "**/__tests__/**"]
+    "exclude": ["node_modules/**", "/__tests__/", "build"]
 }
