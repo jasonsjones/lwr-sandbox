@@ -7,8 +7,10 @@ import { luvio } from './network';
 const getUsersLuvioAdapter = getUsersAdapterFactory(luvio);
 const getUserLuvioAdapter = getUserAdapterFactory(luvio);
 
+// @ts-ignore
 const GetUsersWireAdapter = createWireAdapterConstructor(getUsersLuvioAdapter, 'getUsers', luvio);
 
+// @ts-ignore
 const GetUserWireAdapter = createWireAdapterConstructor(getUserLuvioAdapter, 'getUser', luvio);
 
 const createUser = createUserAdapterFactory(luvio);

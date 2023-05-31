@@ -7,6 +7,7 @@ import { luvio } from './network';
 const getContextUserLuvioAdapter = getContextUserAdapterFactory(luvio);
 
 const GetContextUserWireAdapter = createWireAdapterConstructor(
+    // @ts-ignore
     getContextUserLuvioAdapter,
     'getContextUser',
     luvio
