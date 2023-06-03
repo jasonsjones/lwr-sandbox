@@ -4,7 +4,7 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "build": "tsc --build && yarn build:css && yarn generate:adapters && yarn build:utam",
+        "build": "yarn build:css && yarn generate:adapters && yarn build:utam && tsc --build ",
         "build:css": "tailwindcss -i src/styles/styles.css -o src/assets/styles/tailwind.css",
         "build:utam": "utam -c utam.config.js",
         "clean": "yarn clean:adapters && yarn clean:css && yarn clean:utam && rm -rf build",
