@@ -8,13 +8,13 @@ exports[`orion-input renders an input and label 1`] = `
     >
       <input
         class="peer h-10 border-b-2 border-gray-300 placeholder-transparent bg-transparent focus:border-primary-400 focus:outline-none"
-        id="[shadow:guid]"
+        id="test-0"
         placeholder="Test Input"
         type="text"
       />
       <label
         class="absolute -top-3.5 left-0 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-gray-600"
-        for="[shadow:guid]"
+        for="test-0"
       >
         Test Input
       </label>

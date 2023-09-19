@@ -31,7 +31,7 @@
         "cookie-parser": "1.4.6",
         "dotenv": "16.3.1",
         "jsonwebtoken": "9.0.2",
-        "lwc": "2.45.2",
+        "lwc": "3.3.2",
         "lwr": "0.9.4",
         "passport": "0.6.0",
         "passport-forcedotcom": "0.2.0",
@@ -42,7 +42,7 @@
     "devDependencies": {
         "@luvio/cli": "0.138.0",
         "@luvio/compiler": "0.138.0",
-        "@lwc/jest-preset": "11.8.0",
+        "@lwc/jest-preset": "14.1.0",
         "@types/bcryptjs": "2.4.4",
         "@types/cookie-parser": "1.4.4",
         "@types/jest": "29.5.5",
