@@ -14,13 +14,10 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: ⬣ ESLint
+  continuous_integration:
+    name: ⬣ Continuous Integration
     runs-on: ubuntu-latest
     steps:
-        - name: 🛑 Cancel Previous Runs
-          uses: styfle/cancel-workflow-action@0.9.1
-
         - name: ⬇️ Checkout repo
           uses: actions/checkout@v3
 
