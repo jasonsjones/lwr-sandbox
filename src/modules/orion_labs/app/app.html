@@ -1,7 +1,9 @@
 <template>
     <lwr-router-container router={router}>
         <orion_labs-main-layout>
-            <lwr-outlet></lwr-outlet>
+            <lwr-outlet>
+                <div slot="error">Oooops! View component cannot be displayed.</div>
+            </lwr-outlet>
         </orion_labs-main-layout>
     </lwr-router-container>
 </template>

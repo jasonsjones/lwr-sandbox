@@ -32,7 +32,7 @@
         "dotenv": "16.3.1",
         "jsonwebtoken": "9.0.2",
         "lwc": "3.3.2",
-        "lwr": "0.9.4",
+        "lwr": "0.10.6",
         "passport": "0.6.0",
         "passport-forcedotcom": "0.2.0",
         "passport-jwt": "4.0.1",
