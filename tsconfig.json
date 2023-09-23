@@ -76,7 +76,7 @@
         "types": [
             "@types/jest",
             "node",
-            "webdriverio/async",
+            // "webdriverio/async",
             "@wdio/mocha-framework",
             "wdio-utam-service"
         ] /* Specify type package names to be included without being referenced in a source file. */,
