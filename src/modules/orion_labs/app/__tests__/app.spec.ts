@@ -1,4 +1,5 @@
-import { createElement } from 'lwc';
+import { createElement } from '@lwc/engine-dom';
+// @ts-ignore
 import App from 'orion_labs/app';
 
 global.fetch = jest.fn(() =>
