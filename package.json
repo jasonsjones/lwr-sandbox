@@ -24,8 +24,8 @@
         "watch:server": "ts-node-dev --inspect --respawn --transpile-only src/server/index.ts"
     },
     "dependencies": {
-        "@luvio/engine": "0.138.0",
-        "@luvio/lwc-luvio": "0.138.0",
+        "@luvio/engine": "0.152.2",
+        "@luvio/lwc-luvio": "0.152.2",
         "@prisma/client": "5.3.1",
         "bcryptjs": "2.4.3",
         "cookie-parser": "1.4.6",
@@ -40,8 +40,8 @@
         "uuid": "9.0.1"
     },
     "devDependencies": {
-        "@luvio/cli": "0.138.0",
-        "@luvio/compiler": "0.138.0",
+        "@luvio/cli": "0.152.2",
+        "@luvio/compiler": "0.152.2",
         "@lwc/jest-preset": "14.1.0",
         "@types/bcryptjs": "2.4.4",
         "@types/cookie-parser": "1.4.4",
@@ -81,6 +81,9 @@
             "^orion/(.+)$": "<rootDir>/src/modules/orion/$1/$1",
             "^lwr/(.+)$": "<rootDir>/jest_modules/lwr/$1/$1"
         },
+        "transformIgnorePatterns": [
+            "node_modules/(?!(@luvio)/)"
+        ],
         "coverageDirectory": "./coverage/jest/",
         "coveragePathIgnorePatterns": [
             "/node_modules/",
