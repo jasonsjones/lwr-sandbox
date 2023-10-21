@@ -1,4 +1,5 @@
-import { createElement } from 'lwc';
+import { createElement } from '@lwc/engine-dom';
+// @ts-ignore
 import Element from 'orion/input';
 
 function createInput(params = {}) {

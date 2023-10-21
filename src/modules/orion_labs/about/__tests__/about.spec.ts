@@ -1,4 +1,5 @@
-import { createElement } from 'lwc';
+import { createElement } from '@lwc/engine-dom';
+// @ts-ignore
 import About from 'orion_labs/about';
 
 describe('About component', () => {
